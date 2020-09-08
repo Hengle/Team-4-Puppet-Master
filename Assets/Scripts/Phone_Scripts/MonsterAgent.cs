@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class MonsterAgent : NetworkedAgent
 {
-    public MobileJoystick_UI joystick;
+    public GameObject mobileCanvasPrefab;
+
+    private MobileJoystick_UI joystick;
+    protected override void AwakeOverride()
+    {
+        base.AwakeOverride();
+
+        Instantiate(mobileCanvasPrefab, transform);
+
+        joystick = GetComponentInChildren<MobileJoystick_UI>();
+    }
     /// <summary>
     /// Moves the agent using phone joystick input
     /// </summary>

@@ -14,9 +14,7 @@ public abstract class NetworkedAgent : MonoBehaviour
         //check if this agent is controlled locally
         if(IsLocalAgent())
         {
-            //if so, activate its camera
-            agentCamera = GetComponentInChildren<Camera>();
-            agentCamera.enabled = true;
+            AwakeOverride();
         }
     }
 
@@ -41,6 +39,13 @@ public abstract class NetworkedAgent : MonoBehaviour
     protected virtual void UpdateOverride()
     {
         MoveCharacter();
+    }
+
+    protected virtual void AwakeOverride()
+    {
+        //if so, activate its camera
+        agentCamera = GetComponentInChildren<Camera>();
+        agentCamera.enabled = true;
     }
 
     protected abstract void MoveCharacter();
