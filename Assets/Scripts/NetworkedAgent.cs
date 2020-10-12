@@ -7,6 +7,8 @@ public abstract class NetworkedAgent : MonoBehaviour
     //how fast the agent can move
     public float speed;
 
+    protected Vector3 moveDir;
+
     protected Camera agentCamera;
     // Start is called before the first frame update
     void Awake()
@@ -24,6 +26,11 @@ public abstract class NetworkedAgent : MonoBehaviour
         UpdateOverride();
     }
 
+    private void FixedUpdate()
+    {
+        FixedUpdateOverride();
+    }
+
     /// <summary>
     /// Determines if this agent is controlled by the local player
     /// </summary>
@@ -34,9 +41,17 @@ public abstract class NetworkedAgent : MonoBehaviour
     }
 
     /// <summary>
-    /// Handles all code related to movement
+    /// Handles all code related to input
     /// </summary>
     protected virtual void UpdateOverride()
+    {
+        GetInput();
+    }
+
+    /// <summary>
+    /// Handles all code related to movement and physics
+    /// </summary>
+    protected virtual void FixedUpdateOverride()
     {
         MoveCharacter();
     }
@@ -48,5 +63,16 @@ public abstract class NetworkedAgent : MonoBehaviour
         agentCamera.enabled = true;
     }
 
-    protected abstract void MoveCharacter();
+    /// <summary>
+    /// Moves the agent based on the moveDir variable
+    /// </summary>
+    protected virtual void MoveCharacter()
+    {
+        gameObject.transform.Translate(moveDir * speed * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// Recieves Input from the player
+    /// </summary>
+    protected abstract void GetInput();
 }

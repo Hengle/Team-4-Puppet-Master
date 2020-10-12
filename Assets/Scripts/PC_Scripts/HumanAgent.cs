@@ -11,6 +11,8 @@ public class HumanAgent : NetworkedAgent
     public float minCamXRot;
     public float maxCamXRot;
 
+    private Vector2 cameraDelta;
+
     /// <summary>
     /// Moves the character and handles Camera rotation
     /// </summary>
@@ -21,13 +23,12 @@ public class HumanAgent : NetworkedAgent
     }
 
     /// <summary>
-    /// Moves the agent using WASD input
+    /// 
     /// </summary>
-    protected override void MoveCharacter()
+    protected override void GetInput()
     {
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-        gameObject.transform.Translate(input * speed * Time.deltaTime);
+        moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        cameraDelta = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
     }
 
     /// <summary>
@@ -39,11 +40,11 @@ public class HumanAgent : NetworkedAgent
         Transform cameraTransform = agentCamera.gameObject.transform;
 
         //rotate the camera around the x axis to loox up/down
-        cameraTransform.Rotate(-Input.GetAxis("Mouse Y") * lookSpeed * Time.deltaTime, 0, 0);
+        cameraTransform.Rotate(cameraDelta.y * 10 * lookSpeed * Time.deltaTime, 0, 0);
 
         //TODO: Clamp First Person Camera Rotation
 
         //rotate the agent around the y axis to look left/right
-        gameObject.transform.Rotate(0, Input.GetAxis("Mouse X") * lookSpeed * Time.deltaTime, 0);
+        gameObject.transform.Rotate(0, cameraDelta.x * 10 * lookSpeed * Time.deltaTime, 0);
     }
 }
