@@ -24,6 +24,7 @@ namespace Mirror
     [HelpURL("https://mirror-networking.com/docs/Components/NetworkManager.html")]
     public class NetworkManager : MonoBehaviour
     {
+        #region Variables
         static readonly ILogger logger = LogFactory.GetLogger<NetworkManager>();
 
         /// <summary>
@@ -130,6 +131,7 @@ namespace Mirror
         [Tooltip("Authentication component attached to this object")]
         public NetworkAuthenticator authenticator;
 
+        //TO DO: Update this to handle spawning different prefabs for player vs monster
         /// <summary>
         /// The default prefab to be used to create player objects on the server.
         /// <para>Player objects are created in the default handler for AddPlayer() on the server. Implementing OnServerAddPlayer overrides this behaviour.</para>
@@ -200,6 +202,8 @@ namespace Mirror
         //    in other words, we need this to know which mode we are running in
         //    during FinishLoadScene.
         public NetworkManagerMode mode { get; private set; }
+
+        #endregion
 
         #region Unity Callbacks
 
