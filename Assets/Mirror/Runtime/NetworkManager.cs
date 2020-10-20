@@ -139,7 +139,9 @@ namespace Mirror
         [Header("Player Object")]
         [FormerlySerializedAs("m_PlayerPrefab")]
         [Tooltip("Prefab of the player object. Prefab must have a Network Identity component. May be an empty game object or a full avatar.")]
-        public GameObject playerPrefab;
+        public GameObject PcPrefab;
+        public GameObject PhonePrefab;
+        private bool isPC = false;
 
         /// <summary>
         /// A flag to control whether or not player objects are automatically created on connect, and on scene change.
@@ -230,10 +232,10 @@ namespace Mirror
             // always >= 0
             maxConnections = Mathf.Max(maxConnections, 0);
 
-            if (playerPrefab != null && playerPrefab.GetComponent<NetworkIdentity>() == null)
+            if (prefabToUse != null && prefabToUse.GetComponent<NetworkIdentity>() == null)
             {
                 logger.LogError("NetworkManager - playerPrefab must have a NetworkIdentity.");
-                playerPrefab = null;
+                prefabToUse = null;
             }
         }
 
@@ -412,6 +414,7 @@ namespace Mirror
             }
             if (logger.LogEnabled()) logger.Log("NetworkManager StartClient address:" + networkAddress);
 
+            isPC = false;
             NetworkClient.Connect(networkAddress);
 
             OnStartClient();
@@ -446,6 +449,7 @@ namespace Mirror
             if (logger.LogEnabled()) logger.Log("NetworkManager StartClient address:" + uri);
             networkAddress = uri.Host;
 
+            isPC = false;
             NetworkClient.Connect(uri);
 
             OnStartClient();
@@ -542,6 +546,7 @@ namespace Mirror
             //             isn't called in host mode!
             //
             // TODO call this after spawnobjects and worry about the syncvar hook fix later?
+            isPC = true;
             NetworkClient.ConnectHost();
 
             // server scene was loaded. now spawn all the objects
@@ -751,9 +756,9 @@ namespace Mirror
             NetworkClient.RegisterHandler<ErrorMessage>(OnClientErrorInternal, false);
             NetworkClient.RegisterHandler<SceneMessage>(OnClientSceneInternal, false);
 
-            if (playerPrefab != null)
+            if (prefabToUse != null)
             {
-                ClientScene.RegisterPrefab(playerPrefab);
+                ClientScene.RegisterPrefab(prefabToUse);
             }
             for (int i = 0; i < spawnPrefabs.Count; i++)
             {
@@ -1183,13 +1188,13 @@ namespace Mirror
         {
             logger.Log("NetworkManager.OnServerAddPlayer");
 
-            if (autoCreatePlayer && playerPrefab == null)
+            if (autoCreatePlayer && prefabToUse == null)
             {
                 logger.LogError("The PlayerPrefab is empty on the NetworkManager. Please setup a PlayerPrefab object.");
                 return;
             }
 
-            if (autoCreatePlayer && playerPrefab.GetComponent<NetworkIdentity>() == null)
+            if (autoCreatePlayer && prefabToUse.GetComponent<NetworkIdentity>() == null)
             {
                 logger.LogError("The PlayerPrefab does not have a NetworkIdentity. Please add a NetworkIdentity to the player prefab.");
                 return;
@@ -1335,10 +1340,19 @@ namespace Mirror
         /// <param name="conn">Connection from client.</param>
         public virtual void OnServerAddPlayer(NetworkConnection conn)
         {
+            GameObject prefabToUse = null;
+            if (isPC)
+            {
+                prefabToUse = PcPrefab;
+            }
+            else
+            {
+                prefabToUse = PhonePrefab;
+            }
             Transform startPos = GetStartPosition();
             GameObject player = startPos != null
-                ? Instantiate(playerPrefab, startPos.position, startPos.rotation)
-                : Instantiate(playerPrefab);
+                ? Instantiate(prefabToUse, startPos.position, startPos.rotation)
+                : Instantiate(prefabToUse);
 
             NetworkServer.AddPlayerForConnection(conn, player);
         }
