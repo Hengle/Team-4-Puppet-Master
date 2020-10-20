@@ -185,11 +185,7 @@ namespace Mirror
             GameObject gamePlayer = OnRoomServerCreateGamePlayer(conn, roomPlayer);
             if (gamePlayer == null)
             {
-                // get start position from base class
-                Transform startPos = GetStartPosition();
-                gamePlayer = startPos != null
-                    ? Instantiate(playerPrefab, startPos.position, startPos.rotation)
-                    : Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+                gamePlayer = InstantiatePlayer();
             }
 
             if (!OnRoomServerSceneLoadedForPlayer(conn, roomPlayer, gamePlayer))
@@ -451,7 +447,7 @@ namespace Mirror
             else
                 ClientScene.RegisterPrefab(roomPlayerPrefab.gameObject);
 
-            if (playerPrefab == null)
+            if (PcPrefab == null || PhonePrefab == null)
                 logger.LogError("NetworkRoomManager no GamePlayer prefab is registered. Please add a GamePlayer prefab.");
 
             OnRoomStartClient();

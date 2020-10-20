@@ -232,10 +232,33 @@ namespace Mirror
             // always >= 0
             maxConnections = Mathf.Max(maxConnections, 0);
 
-            if (prefabToUse != null && prefabToUse.GetComponent<NetworkIdentity>() == null)
+            //Validate that the prefabs have network identities
+            validatePrefab(PcPrefab);
+            validatePrefab(PhonePrefab);
+        }
+
+        /// <summary>
+        /// Validates that the given prefab ha
+        /// </summary>
+        /// <param name="prefab"></param>
+        private void validatePrefab(GameObject prefab)
+        {
+            if (prefab != null && prefab.GetComponent<NetworkIdentity>() == null)
             {
                 logger.LogError("NetworkManager - playerPrefab must have a NetworkIdentity.");
-                prefabToUse = null;
+                prefab = null;
+            }
+        }
+
+        /// <summary>
+        /// Registers a prefab on the network
+        /// </summary>
+        /// <param name="prefab"></param>
+        private void RegisterPrefab(GameObject prefab)
+        {
+            if (prefab != null)
+            {
+                ClientScene.RegisterPrefab(prefab);
             }
         }
 
@@ -756,10 +779,10 @@ namespace Mirror
             NetworkClient.RegisterHandler<ErrorMessage>(OnClientErrorInternal, false);
             NetworkClient.RegisterHandler<SceneMessage>(OnClientSceneInternal, false);
 
-            if (prefabToUse != null)
-            {
-                ClientScene.RegisterPrefab(prefabToUse);
-            }
+            //Register the player prefabs
+            RegisterPrefab(PcPrefab);
+            RegisterPrefab(PhonePrefab);
+
             for (int i = 0; i < spawnPrefabs.Count; i++)
             {
                 GameObject prefab = spawnPrefabs[i];
@@ -1188,13 +1211,13 @@ namespace Mirror
         {
             logger.Log("NetworkManager.OnServerAddPlayer");
 
-            if (autoCreatePlayer && prefabToUse == null)
+            if (autoCreatePlayer && (PcPrefab == null || PhonePrefab == null))
             {
                 logger.LogError("The PlayerPrefab is empty on the NetworkManager. Please setup a PlayerPrefab object.");
                 return;
             }
 
-            if (autoCreatePlayer && prefabToUse.GetComponent<NetworkIdentity>() == null)
+            if (autoCreatePlayer && (PcPrefab.GetComponent<NetworkIdentity>() == null || PhonePrefab.GetComponent<NetworkIdentity>() == null))
             {
                 logger.LogError("The PlayerPrefab does not have a NetworkIdentity. Please add a NetworkIdentity to the player prefab.");
                 return;
@@ -1340,6 +1363,13 @@ namespace Mirror
         /// <param name="conn">Connection from client.</param>
         public virtual void OnServerAddPlayer(NetworkConnection conn)
         {
+            GameObject player = InstantiatePlayer();
+
+            NetworkServer.AddPlayerForConnection(conn, player);
+        }
+
+        protected GameObject InstantiatePlayer()
+        {
             GameObject prefabToUse = null;
             if (isPC)
             {
@@ -1354,7 +1384,7 @@ namespace Mirror
                 ? Instantiate(prefabToUse, startPos.position, startPos.rotation)
                 : Instantiate(prefabToUse);
 
-            NetworkServer.AddPlayerForConnection(conn, player);
+            return player;
         }
 
         // Deprecated 5/2/2020
