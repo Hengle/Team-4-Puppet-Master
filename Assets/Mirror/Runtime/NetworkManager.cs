@@ -139,7 +139,9 @@ namespace Mirror
         [Header("Player Object")]
         [FormerlySerializedAs("m_PlayerPrefab")]
         [Tooltip("Prefab of the player object. Prefab must have a Network Identity component. May be an empty game object or a full avatar.")]
-        public GameObject playerPrefab;
+        public GameObject PcPrefab;
+        public GameObject PhonePrefab;
+        private bool isPC = true;
 
         /// <summary>
         /// A flag to control whether or not player objects are automatically created on connect, and on scene change.
@@ -230,10 +232,33 @@ namespace Mirror
             // always >= 0
             maxConnections = Mathf.Max(maxConnections, 0);
 
-            if (playerPrefab != null && playerPrefab.GetComponent<NetworkIdentity>() == null)
+            //Validate that the prefabs have network identities
+            validatePrefab(PcPrefab);
+            validatePrefab(PhonePrefab);
+        }
+
+        /// <summary>
+        /// Validates that the given prefab ha
+        /// </summary>
+        /// <param name="prefab"></param>
+        private void validatePrefab(GameObject prefab)
+        {
+            if (prefab != null && prefab.GetComponent<NetworkIdentity>() == null)
             {
                 logger.LogError("NetworkManager - playerPrefab must have a NetworkIdentity.");
-                playerPrefab = null;
+                prefab = null;
+            }
+        }
+
+        /// <summary>
+        /// Registers a prefab on the network
+        /// </summary>
+        /// <param name="prefab"></param>
+        private void RegisterPrefab(GameObject prefab)
+        {
+            if (prefab != null)
+            {
+                ClientScene.RegisterPrefab(prefab);
             }
         }
 
@@ -412,6 +437,8 @@ namespace Mirror
             }
             if (logger.LogEnabled()) logger.Log("NetworkManager StartClient address:" + networkAddress);
 
+            Debug.Log("Connect as Client");
+
             NetworkClient.Connect(networkAddress);
 
             OnStartClient();
@@ -445,6 +472,8 @@ namespace Mirror
 
             if (logger.LogEnabled()) logger.Log("NetworkManager StartClient address:" + uri);
             networkAddress = uri.Host;
+
+            Debug.Log("Connect as Client");
 
             NetworkClient.Connect(uri);
 
@@ -542,6 +571,9 @@ namespace Mirror
             //             isn't called in host mode!
             //
             // TODO call this after spawnobjects and worry about the syncvar hook fix later?
+
+            Debug.Log("Connect as Host");
+
             NetworkClient.ConnectHost();
 
             // server scene was loaded. now spawn all the objects
@@ -751,17 +783,14 @@ namespace Mirror
             NetworkClient.RegisterHandler<ErrorMessage>(OnClientErrorInternal, false);
             NetworkClient.RegisterHandler<SceneMessage>(OnClientSceneInternal, false);
 
-            if (playerPrefab != null)
-            {
-                ClientScene.RegisterPrefab(playerPrefab);
-            }
+            //Register the player prefabs
+            RegisterPrefab(PcPrefab);
+            RegisterPrefab(PhonePrefab);
+
+            //Register the spawn prefabs
             for (int i = 0; i < spawnPrefabs.Count; i++)
             {
-                GameObject prefab = spawnPrefabs[i];
-                if (prefab != null)
-                {
-                    ClientScene.RegisterPrefab(prefab);
-                }
+                RegisterPrefab(spawnPrefabs[i]);
             }
         }
 
@@ -1183,13 +1212,13 @@ namespace Mirror
         {
             logger.Log("NetworkManager.OnServerAddPlayer");
 
-            if (autoCreatePlayer && playerPrefab == null)
+            if (autoCreatePlayer && (PcPrefab == null || PhonePrefab == null))
             {
                 logger.LogError("The PlayerPrefab is empty on the NetworkManager. Please setup a PlayerPrefab object.");
                 return;
             }
 
-            if (autoCreatePlayer && playerPrefab.GetComponent<NetworkIdentity>() == null)
+            if (autoCreatePlayer && (PcPrefab.GetComponent<NetworkIdentity>() == null || PhonePrefab.GetComponent<NetworkIdentity>() == null))
             {
                 logger.LogError("The PlayerPrefab does not have a NetworkIdentity. Please add a NetworkIdentity to the player prefab.");
                 return;
@@ -1335,12 +1364,35 @@ namespace Mirror
         /// <param name="conn">Connection from client.</param>
         public virtual void OnServerAddPlayer(NetworkConnection conn)
         {
+            GameObject player = InstantiatePlayer();
+            NetworkServer.AddPlayerForConnection(conn, player);
+        }
+
+        /// <summary>
+        /// Handles instantiating a player. The first player is the host (PC) and all subsequent are clients (Phone)
+        /// </summary>
+        /// <returns></returns>
+        protected GameObject InstantiatePlayer()
+        {
+            Debug.Log($"Instantiate Player\n Is PC: {isPC}");
+
+            GameObject prefabToUse = null;
+            if (isPC)
+            {
+                prefabToUse = PcPrefab;
+
+                isPC = false;
+            }
+            else
+            {
+                prefabToUse = PhonePrefab;
+            }
             Transform startPos = GetStartPosition();
             GameObject player = startPos != null
-                ? Instantiate(playerPrefab, startPos.position, startPos.rotation)
-                : Instantiate(playerPrefab);
+                ? Instantiate(prefabToUse, startPos.position, startPos.rotation)
+                : Instantiate(prefabToUse);
 
-            NetworkServer.AddPlayerForConnection(conn, player);
+            return player;
         }
 
         // Deprecated 5/2/2020
