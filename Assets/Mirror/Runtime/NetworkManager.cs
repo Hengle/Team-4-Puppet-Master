@@ -141,7 +141,7 @@ namespace Mirror
         [Tooltip("Prefab of the player object. Prefab must have a Network Identity component. May be an empty game object or a full avatar.")]
         public GameObject PcPrefab;
         public GameObject PhonePrefab;
-        private bool isPC = false;
+        private bool isPC = true;
 
         /// <summary>
         /// A flag to control whether or not player objects are automatically created on connect, and on scene change.
@@ -437,7 +437,8 @@ namespace Mirror
             }
             if (logger.LogEnabled()) logger.Log("NetworkManager StartClient address:" + networkAddress);
 
-            isPC = false;
+            Debug.Log("Connect as Client");
+
             NetworkClient.Connect(networkAddress);
 
             OnStartClient();
@@ -472,7 +473,8 @@ namespace Mirror
             if (logger.LogEnabled()) logger.Log("NetworkManager StartClient address:" + uri);
             networkAddress = uri.Host;
 
-            isPC = false;
+            Debug.Log("Connect as Client");
+
             NetworkClient.Connect(uri);
 
             OnStartClient();
@@ -569,7 +571,9 @@ namespace Mirror
             //             isn't called in host mode!
             //
             // TODO call this after spawnobjects and worry about the syncvar hook fix later?
-            isPC = true;
+
+            Debug.Log("Connect as Host");
+
             NetworkClient.ConnectHost();
 
             // server scene was loaded. now spawn all the objects
@@ -783,13 +787,10 @@ namespace Mirror
             RegisterPrefab(PcPrefab);
             RegisterPrefab(PhonePrefab);
 
+            //Register the spawn prefabs
             for (int i = 0; i < spawnPrefabs.Count; i++)
             {
-                GameObject prefab = spawnPrefabs[i];
-                if (prefab != null)
-                {
-                    ClientScene.RegisterPrefab(prefab);
-                }
+                RegisterPrefab(spawnPrefabs[i]);
             }
         }
 
@@ -1364,16 +1365,23 @@ namespace Mirror
         public virtual void OnServerAddPlayer(NetworkConnection conn)
         {
             GameObject player = InstantiatePlayer();
-
             NetworkServer.AddPlayerForConnection(conn, player);
         }
 
+        /// <summary>
+        /// Handles instantiating a player. The first player is the host (PC) and all subsequent are clients (Phone)
+        /// </summary>
+        /// <returns></returns>
         protected GameObject InstantiatePlayer()
         {
+            Debug.Log($"Instantiate Player\n Is PC: {isPC}");
+
             GameObject prefabToUse = null;
             if (isPC)
             {
                 prefabToUse = PcPrefab;
+
+                isPC = false;
             }
             else
             {
