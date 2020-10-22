@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62982a6481daf934cb3d796ec351a1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   speed: 5
   lookSpeed: 45
   minCamXRot: 0
@@ -65,12 +67,12 @@ Light:
   m_InnerSpotAngle: 2
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_Bias: 0
+    m_NormalBias: 0
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
@@ -190,6 +192,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9157602606928414832, guid: 0c9bb79ebce23be4c906a4c32749d561, type: 3}
+      propertyPath: clientAuthority
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 805866036651057682, guid: 0c9bb79ebce23be4c906a4c32749d561, type: 3}
       propertyPath: m_Name
       value: PCAgent
