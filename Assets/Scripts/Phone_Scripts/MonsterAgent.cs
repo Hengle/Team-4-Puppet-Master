@@ -7,9 +7,11 @@ public class MonsterAgent : NetworkedAgent
     public GameObject mobileCanvasPrefab;
 
     private MobileJoystick_UI joystick;
-    protected override void AwakeOverride()
+    protected override void StartOverride()
     {
-        base.AwakeOverride();
+        base.StartOverride();
+
+        Debug.Log("Phone Start");
 
         Instantiate(mobileCanvasPrefab, transform);
 

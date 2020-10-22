@@ -16,9 +16,9 @@ public class HumanAgent : NetworkedAgent
     /// <summary>
     /// Moves the character and handles Camera rotation
     /// </summary>
-    protected override void UpdateOverride()
+    protected override void FixedUpdateOverride()
     {
-        base.UpdateOverride();
+        base.FixedUpdateOverride();
         MoveCamera();
     }
 

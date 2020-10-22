@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public abstract class NetworkedAgent : MonoBehaviour
+public abstract class NetworkedAgent : NetworkBehaviour
 {
     //how fast the agent can move
     public float speed;
@@ -11,33 +12,31 @@ public abstract class NetworkedAgent : MonoBehaviour
 
     protected Camera agentCamera;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
+        Debug.Log($"Is Local Player: {isLocalPlayer}");
         //check if this agent is controlled locally
-        if(IsLocalAgent())
+        if(isLocalPlayer)
         {
-            AwakeOverride();
+            StartOverride();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateOverride();
+        if(isLocalPlayer)
+        {
+            UpdateOverride();
+        }
     }
 
     private void FixedUpdate()
     {
-        FixedUpdateOverride();
-    }
-
-    /// <summary>
-    /// Determines if this agent is controlled by the local player
-    /// </summary>
-    /// <returns></returns>
-    private bool IsLocalAgent()
-    {
-        return true;
+        if(isLocalPlayer)
+        {
+            FixedUpdateOverride();
+        }
     }
 
     /// <summary>
@@ -56,8 +55,9 @@ public abstract class NetworkedAgent : MonoBehaviour
         MoveCharacter();
     }
 
-    protected virtual void AwakeOverride()
+    protected virtual void StartOverride()
     {
+        Debug.Log("Start Override");
         //if so, activate its camera
         agentCamera = GetComponentInChildren<Camera>();
         agentCamera.enabled = true;
