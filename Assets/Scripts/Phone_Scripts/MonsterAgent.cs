@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,10 @@ public class MonsterAgent : NetworkedAgent
     public GameObject mobileCanvasPrefab;
 
     private MobileJoystick_UI joystick;
-    public override void CmdOnStartGame()
+    public override void OnStartGame(NetworkConnection conn, StartGameMessage message)
     {
+        base.OnStartGame(conn, message);
+
         Debug.Log("Phone Start");
 
         Instantiate(mobileCanvasPrefab, transform);

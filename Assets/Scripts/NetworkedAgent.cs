@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 public abstract class NetworkedAgent : NetworkBehaviour
 {
@@ -14,16 +15,18 @@ public abstract class NetworkedAgent : NetworkBehaviour
     protected Camera agentCamera;
     protected int networkID;
     protected bool inputLocked;
-
+    protected Action<NetworkConnection, StartGameMessage> StartGameAction;
     // Start is called before the first frame update
     void Start()
     {
-        networkID = NetworkManager.singleton.numPlayers - 1;
+        networkID = GameManager.instance.GetNumPlayers() - 1;
         Debug.Log($"Is Local Player: {isLocalPlayer}");
         //check if this agent is controlled locally
         if(isLocalPlayer)
         {
             OnJoinLobby();
+            StartGameAction += OnStartGame;
+            NetworkClient.RegisterHandler<StartGameMessage>(StartGameAction);
         }
     }
 
@@ -78,10 +81,8 @@ public abstract class NetworkedAgent : NetworkBehaviour
     /// <summary>
     /// Called when the host starts the game
     /// </summary>
-    [Command]
-    public virtual void CmdOnStartGame()
+    public virtual void OnStartGame(NetworkConnection conn, StartGameMessage message)
     {
-        Debug.Log("Test");
         //if so, activate its camera
         agentCamera = GetComponentInChildren<Camera>();
         agentCamera.enabled = true;
