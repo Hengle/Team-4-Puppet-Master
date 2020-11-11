@@ -54,14 +54,14 @@ MonoBehaviour:
   onlineScene: Assets/Scenes/TwoBlocks.unity
   transport: {fileID: 5056951902164443334}
   networkAddress: localhost
-  maxConnections: 4
+  maxConnections: 5
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
   PcPrefab: {fileID: 2446139771253913341, guid: 3af83de3e93cbca4db33a656f693c754, type: 3}
   PhonePrefab: {fileID: 8450534913407155316, guid: c486404c689dc934a8262fa49e3ab6fc, type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerSpawnMethod: 1
   spawnPrefabs: []
 --- !u!114 &5056951902164443334
 MonoBehaviour:

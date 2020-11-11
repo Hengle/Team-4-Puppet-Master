@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Phone_Scripts\MonsterAgent.cs" />
     <Compile Include="Assets\Scripts\Phone_Scripts\MobileJoystick_UI.cs" />
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
+    <Compile Include="Assets\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

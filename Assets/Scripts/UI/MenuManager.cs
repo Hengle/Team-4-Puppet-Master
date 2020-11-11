@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Network Manager")]
-    public NetworkManager manager;
     [Header("Button Layouts")]
     public GameObject phoneButtons;
     public GameObject pcButtons;
@@ -16,8 +14,8 @@ public class MenuManager : MonoBehaviour
     [Header("Sub Menus")]
     public GameObject joinScreen;
     public TMP_InputField joinAddress;
-    
 
+    private NetworkManager manager;
     private bool pcPlayer = true;
     private bool dev = false;
     private GameObject mainScreen;
@@ -46,6 +44,11 @@ public class MenuManager : MonoBehaviour
         }
 
         mainScreen.SetActive(true);
+    }
+
+    private void Start()
+    {
+        manager = NetworkManager.singleton;
     }
 
     public void HostGame()

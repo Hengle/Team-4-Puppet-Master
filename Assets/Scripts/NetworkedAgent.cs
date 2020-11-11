@@ -7,18 +7,23 @@ public abstract class NetworkedAgent : NetworkBehaviour
 {
     //how fast the agent can move
     public float speed;
+    
 
     protected Vector3 moveDir;
 
     protected Camera agentCamera;
+    protected int networkID;
+    protected bool inputLocked;
+
     // Start is called before the first frame update
     void Start()
     {
+        networkID = NetworkManager.singleton.numPlayers - 1;
         Debug.Log($"Is Local Player: {isLocalPlayer}");
         //check if this agent is controlled locally
         if(isLocalPlayer)
         {
-            StartOverride();
+            OnJoinLobby();
         }
     }
 
@@ -44,7 +49,10 @@ public abstract class NetworkedAgent : NetworkBehaviour
     /// </summary>
     protected virtual void UpdateOverride()
     {
-        GetInput();
+        if(!inputLocked)
+        {
+            GetInput();
+        }
     }
 
     /// <summary>
@@ -52,15 +60,35 @@ public abstract class NetworkedAgent : NetworkBehaviour
     /// </summary>
     protected virtual void FixedUpdateOverride()
     {
-        MoveCharacter();
+        if(moveDir.magnitude != 0)
+        {
+            MoveCharacter();
+        }
     }
 
-    protected virtual void StartOverride()
+    /// <summary>
+    /// Called when the player joins the lobby
+    /// </summary>
+    protected virtual void OnJoinLobby()
     {
-        Debug.Log("Start Override");
+        inputLocked = true;
+        Debug.Log($"Network ID: {getIdNumber()}");
+    }
+
+    /// <summary>
+    /// Called when the host starts the game
+    /// </summary>
+    [Command]
+    public virtual void CmdOnStartGame()
+    {
+        Debug.Log("Test");
         //if so, activate its camera
         agentCamera = GetComponentInChildren<Camera>();
         agentCamera.enabled = true;
+
+        inputLocked = false;
+
+        transform.position = GameManager.instance.spawnLocations[getIdNumber()].position;
     }
 
     /// <summary>
@@ -68,7 +96,12 @@ public abstract class NetworkedAgent : NetworkBehaviour
     /// </summary>
     protected virtual void MoveCharacter()
     {
-        gameObject.transform.Translate(moveDir * speed * Time.deltaTime);
+        transform.Translate(moveDir * speed * Time.deltaTime);
+    }
+
+    public int getIdNumber()
+    {
+        return networkID;
     }
 
     /// <summary>

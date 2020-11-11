@@ -19,7 +19,11 @@ public class HumanAgent : NetworkedAgent
     protected override void FixedUpdateOverride()
     {
         base.FixedUpdateOverride();
-        MoveCamera();
+
+        if(cameraDelta.magnitude != 0)
+        {
+            MoveCamera();
+        }
     }
 
     /// <summary>
