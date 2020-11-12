@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4FCE4560-CC74-9568-2F9E-907E97479D5F}</ProjectGuid>
+    <ProjectGuid>{ECF6F881-5FAE-007D-053E-39010E98B991}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_4;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;MIRROR;MIRROR_1726_OR_NEWER;MIRROR_3_0_OR_NEWER;MIRROR_3_12_OR_NEWER;MIRROR_4_0_OR_NEWER;MIRROR_5_0_OR_NEWER;MIRROR_6_0_OR_NEWER;MIRROR_7_0_OR_NEWER;MIRROR_8_0_OR_NEWER;MIRROR_9_0_OR_NEWER;MIRROR_10_0_OR_NEWER;MIRROR_11_0_OR_NEWER;MIRROR_12_0_OR_NEWER;MIRROR_13_0_OR_NEWER;MIRROR_14_0_OR_NEWER;MIRROR_15_0_OR_NEWER;MIRROR_16_0_OR_NEWER;MIRROR_17_0_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NET_STANDARD_2_0;DEVELOPMENT_BUILD</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_4;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;MIRROR;MIRROR_1726_OR_NEWER;MIRROR_3_0_OR_NEWER;MIRROR_3_12_OR_NEWER;MIRROR_4_0_OR_NEWER;MIRROR_5_0_OR_NEWER;MIRROR_6_0_OR_NEWER;MIRROR_7_0_OR_NEWER;MIRROR_8_0_OR_NEWER;MIRROR_9_0_OR_NEWER;MIRROR_10_0_OR_NEWER;MIRROR_11_0_OR_NEWER;MIRROR_12_0_OR_NEWER;MIRROR_13_0_OR_NEWER;MIRROR_14_0_OR_NEWER;MIRROR_15_0_OR_NEWER;MIRROR_16_0_OR_NEWER;MIRROR_17_0_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NET_STANDARD_2_0;DEVELOPMENT_BUILD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -48,14 +48,47 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectType>Editor:5</UnityProjectType>
-    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.1.4f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\FPSBuilder\Base\Shaders\Built-in Pipeline\Editor\Material\LitShaderGUI.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Player\Editor\CameraAnimatorEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Editor\Utility\EditorUtilities.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Player\Editor\HealthControllerEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\PostProcessing\Editor\BloodSplashEffectEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Player\Editor\FirstPersonCharacterControllerEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Editor\Windows\AdditionalContextMenuEntries.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Surface\Editor\SurfaceIdentifierEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Items\Editor\AdrenalineEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Player\Editor\DamageHandlerEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Managers\Editor\BulletDecalsManagerEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Editor\Material\LitShaderGUI.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Editor\Material\ReflectorSightShaderGUI.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Editor\Material\TelescopicSightShaderGUI.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Editor\Drawers\MinMaxSliderPropertyDrawer.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Weapons\Editor\WeaponManagerEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Editor\Drawers\RequiredPropertyDrawer.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Weapons\Editor\GunEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Environment Pack\Scripts\Gameplay\Editor\BreakableLightEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Utility\Editor\CollisionSoundEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Editor\Windows\HelpWindow.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Input\Editor\InputBindingsEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Items\Editor\GrenadeEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Editor\Drawers\MinMaxPropertyDrawer.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Managers\Editor\AudioManagerEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Surface\Editor\SurfaceTypeEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Environment Pack\Scripts\Gameplay\Editor\InteractiveDoorEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Weapons\Editor\ArmsEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Editor\Drawers\TagPropertyDrawer.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Items\Editor\ExplosiveEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Animation\Editor\MotionDataEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Managers\Editor\GameplayManagerEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Managers\Editor\GameplaySettingsEditor.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Editor\Utility\Styling.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Weapons\Editor\GunDataEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -664,63 +697,63 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{10B2E9D1-1272-B1F8-D760-E66EA4A3C97C}</Project>
+      <Project>{E0FFC92E-913D-2D59-9430-BEFA203C69B3}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Weaver.csproj">
-      <Project>{0F385E7D-1322-E5DC-87F2-8205AAE28311}</Project>
+      <Project>{948244CD-498B-E5D4-5427-66C0E82CDFC6}</Project>
       <Name>Mirror.Weaver</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Authenticators.csproj">
-      <Project>{7BCDA415-9B0D-EB61-E74B-CC4E66069D28}</Project>
+      <Project>{42DA8FF4-E184-8548-619F-15F27F4828E6}</Project>
       <Name>Mirror.Authenticators</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Components.csproj">
-      <Project>{B20358ED-4F64-A5BA-413C-4B30EABF5813}</Project>
+      <Project>{F6B67BD2-93D5-F476-04D9-6D6AA5A835B2}</Project>
       <Name>Mirror.Components</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Websocket.csproj">
-      <Project>{9CBE8830-0771-A9A5-F7A0-80B31D5F132F}</Project>
+      <Project>{6F1107C6-81F2-6E8F-7D33-0F4B4CF5EE67}</Project>
       <Name>Mirror.Websocket</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{E7FB3D2B-4F0C-BD9D-D06C-34FFE355D1FC}</Project>
+      <Project>{A022F089-5E6F-2A4E-38FB-35A7AF98DB30}</Project>
       <Name>Mirror.Examples</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
-      <Project>{BFB6246D-DA65-720E-51B0-CA756A7046E0}</Project>
+      <Project>{1C071B10-7B1E-798F-A738-8EFF25BC9EDD}</Project>
       <Name>Mirror.CompilerSymbols</Name>
     </ProjectReference>
     <ProjectReference Include="Ninja.WebSockets.csproj">
-      <Project>{673BBE06-FB7C-6D64-FB5F-B711203A5B66}</Project>
+      <Project>{A4105201-3BC4-4237-A557-EC3206B3185A}</Project>
       <Name>Ninja.WebSockets</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Cloud.csproj">
-      <Project>{E0C47C17-4FCF-4B11-6F7E-CA2E547BD905}</Project>
+      <Project>{E4927526-5675-E7D9-2E90-82582864B577}</Project>
       <Name>Mirror.Cloud</Name>
     </ProjectReference>
     <ProjectReference Include="Telepathy.csproj">
-      <Project>{588500E7-88AC-6E4B-EA7F-0C93C541B74B}</Project>
+      <Project>{50550893-9A48-21AE-F043-156B5CDBC660}</Project>
       <Name>Telepathy</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Examples.Cloud.Pong.csproj">
-      <Project>{C804F9BC-29F7-E65D-FEC1-11A77718932E}</Project>
+      <Project>{F42A6D05-73A7-43C4-3D2C-EE934D09502E}</Project>
       <Name>Mirror.Examples.Cloud.Pong</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.csproj">
-      <Project>{CFA6404E-E9D6-F658-7303-4B97C7786B92}</Project>
+      <Project>{8271BF72-F6DD-88C2-1026-990EC48FB72B}</Project>
       <Name>Mirror</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.example.RigidbodyPhysics.csproj">
-      <Project>{0D938942-CFC9-A87D-AAE3-84352CA1B662}</Project>
+      <Project>{667C1FAF-CA5C-9E78-FF7D-2450B8CE05C8}</Project>
       <Name>Mirror.example.RigidbodyPhysics</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Editor.csproj">
-      <Project>{2F9A68F9-214C-0C39-18C7-279E499E4DBA}</Project>
+      <Project>{4309A13A-2F8B-49BA-D456-5139B34D1361}</Project>
       <Name>Mirror.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Examples.Cloud.GUI.csproj">
-      <Project>{76730633-4A96-AA3F-44A5-DAC8ACA24E12}</Project>
+      <Project>{83C159CF-2777-CAD1-6435-140D4028B921}</Project>
       <Name>Mirror.Examples.Cloud.GUI</Name>
     </ProjectReference>
   </ItemGroup>
