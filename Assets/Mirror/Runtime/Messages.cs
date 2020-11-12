@@ -87,6 +87,13 @@ namespace Mirror
         public void Serialize(NetworkWriter writer) { }
     }
 
+    public struct StartGameMessage : IMessageBase
+    {
+        public void Deserialize(NetworkReader reader) { }
+
+        public void Serialize(NetworkWriter writer) { }
+    }
+
     public struct SceneMessage : IMessageBase
     {
         public string sceneName;

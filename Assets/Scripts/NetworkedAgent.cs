@@ -2,23 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 public abstract class NetworkedAgent : NetworkBehaviour
 {
     //how fast the agent can move
     public float speed;
+    
 
     protected Vector3 moveDir;
 
     protected Camera agentCamera;
+    protected int networkID;
+    protected bool inputLocked;
+    protected Action<NetworkConnection, StartGameMessage> StartGameAction;
     // Start is called before the first frame update
     void Start()
     {
+        networkID = GameManager.instance.GetNumPlayers() - 1;
         Debug.Log($"Is Local Player: {isLocalPlayer}");
         //check if this agent is controlled locally
         if(isLocalPlayer)
         {
-            StartOverride();
+            OnJoinLobby();
+            StartGameAction += OnStartGame;
+            NetworkClient.RegisterHandler<StartGameMessage>(StartGameAction);
         }
     }
 
@@ -44,7 +52,10 @@ public abstract class NetworkedAgent : NetworkBehaviour
     /// </summary>
     protected virtual void UpdateOverride()
     {
-        GetInput();
+        if(!inputLocked)
+        {
+            GetInput();
+        }
     }
 
     /// <summary>
@@ -52,15 +63,33 @@ public abstract class NetworkedAgent : NetworkBehaviour
     /// </summary>
     protected virtual void FixedUpdateOverride()
     {
-        MoveCharacter();
+        if(moveDir.magnitude != 0)
+        {
+            MoveCharacter();
+        }
     }
 
-    protected virtual void StartOverride()
+    /// <summary>
+    /// Called when the player joins the lobby
+    /// </summary>
+    protected virtual void OnJoinLobby()
     {
-        Debug.Log("Start Override");
+        inputLocked = true;
+        Debug.Log($"Network ID: {getIdNumber()}");
+    }
+
+    /// <summary>
+    /// Called when the host starts the game
+    /// </summary>
+    public virtual void OnStartGame(NetworkConnection conn, StartGameMessage message)
+    {
         //if so, activate its camera
         agentCamera = GetComponentInChildren<Camera>();
         agentCamera.enabled = true;
+
+        inputLocked = false;
+
+        transform.position = GameManager.instance.spawnLocations[getIdNumber()].position;
     }
 
     /// <summary>
@@ -68,7 +97,12 @@ public abstract class NetworkedAgent : NetworkBehaviour
     /// </summary>
     protected virtual void MoveCharacter()
     {
-        gameObject.transform.Translate(moveDir * speed * Time.deltaTime);
+        transform.Translate(moveDir * speed * Time.deltaTime);
+    }
+
+    public int getIdNumber()
+    {
+        return networkID;
     }
 
     /// <summary>
