@@ -55,13 +55,6 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\NetworkedAgent.cs" />
-    <Compile Include="Assets\Scripts\PC_Scripts\HumanAgent.cs" />
-    <Compile Include="Assets\Scripts\Phone_Scripts\MonsterAgent.cs" />
-    <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
-    <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Phone_Scripts\MobileJoystick_UI.cs" />
-    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Surface\SurfaceIdentifier.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Decal\DecalPolygon.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Utility\Screenshot.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Input\Button.cs" />
@@ -83,6 +76,9 @@
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Input\InputManager.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Weapons\Utils\AnimatorExtension.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\PostProcessing\LensDistortionEffect.cs" />
+    <Compile Include="Assets\Scripts\NetworkedAgent.cs" />
+    <Compile Include="Assets\Scripts\PC_Scripts\HumanAgent.cs" />
+    <Compile Include="Assets\Scripts\Phone_Scripts\MonsterAgent.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Utility\ParticleDestroyer.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Managers\AudioEmitter.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Player\CameraAnimator.cs" />
@@ -106,6 +102,7 @@
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Utility\CollisionSound.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Modern Weapons Pack\Scripts\DummyTarget.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Managers\AudioManager.cs" />
+    <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Surface\SurfaceIdentifier.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Environment Pack\Scripts\Water\MeshContainer.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Player\Components\CameraController.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Attributes\MinMaxSliderAttribute.cs" />
@@ -118,8 +115,10 @@
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Managers\GameplayManager.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Attributes\RequiredAttribute.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Weapons\Arms.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Items\Grenade.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Surface\Utils\ColliderExtension.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Player\HealthController.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Interfaces\IStunnable.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Player\LadderTrigger.cs" />
@@ -142,6 +141,7 @@
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Weapons\Gun.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Items\Adrenaline.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Interfaces\IDamageable.cs" />
+    <Compile Include="Assets\Scripts\Phone_Scripts\MobileJoystick_UI.cs" />
     <Compile Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\Core\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -150,51 +150,36 @@
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Runtime\Shaders\UnityShaderUtilities.cginc" />
-     <None Include="Assets\ImportedAssets\ReliefPack\Shaders\ReliefTerrain\Internal\ReliefTerrainGeometryBlendBase.shader" />
-     <None Include="Assets\ImportedAssets\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\PostProcessing\Resources\Shaders\BloodSplashEffect.shader" />
-     <None Include="Assets\ImportedAssets\ScriptTemplates\53-Mirror__Network Observer-NewNetworkObserver.cs.txt" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Runtime\Shaders\TelescopicSight.shader" />
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Pdb.dll" />
-     <None Include="Assets\ImportedAssets\ReliefPack\Shaders\ReliefTerrain\GeomBlendCompliant\2xParallaxMapped\GeometryBlend_PM_2VertexPaint_HB.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-     <None Include="Assets\ImportedAssets\ScriptTemplates\56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-     <None Include="Assets\ImportedAssets\ReliefPack\Shaders\ReliefTerrain\ReliefTerrain-FarOnly.shader" />
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Runtime\Shaders\Lit.shader" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Scripts\PostProcessing\Resources\Shaders\LensDistortion.shader" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Art\UI\Fonts\About.txt" />
      <None Include="Assets\Mirror\version.txt" />
-     <None Include="Assets\ImportedAssets\ReliefPack\Shaders\ReliefTerrain\VertexControl\ReliefTerrainPMTriplanarStandalone - PolyBrush.shader" />
      <None Include="Assets\Mirror\Readme.txt" />
-     <None Include="Assets\ImportedAssets\NatureManufacture Assets\Forest Environment Dynamic Nature\VS PRO Forest Biomes\README - VS PRO Biomes.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\ImportedAssets\Visual Design Cafe\Nature Shaders\Common\Nodes\Wind\Trunk Movement.cginc" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Runtime\Shaders\ReflectorSight.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\ImportedAssets\ScriptTemplates\52-Mirror__Network Behaviour-NewNetworkBehaviour.cs.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\ImportedAssets\Visual Design Cafe\Nature Shaders\Standard\Vegetation.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\License.txt" />
-     <None Include="Assets\ImportedAssets\ReliefPack\Shaders\ReliefTerrain\Planet\PlanetaryTerrain guidelines.txt" />
-     <None Include="Assets\ImportedAssets\ScriptTemplates\55-Mirror__Network Room Player-NewNetworkRoomPlayer.cs.txt" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Environment Pack\Shaders\FXWaterPro.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Runtime\Shaders\Blur.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\ImportedAssets\ScriptTemplates\50-Mirror__Network Manager-NewNetworkManager.cs.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\ImportedAssets\FPSBuilder\Base\Shaders\Built-in Pipeline\Runtime\Shaders\TransparentLit.shader" />
-     <None Include="Assets\ImportedAssets\ScriptTemplates\54-Mirror__Network Room Manager-NewNetworkRoomManager.cs.txt" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
