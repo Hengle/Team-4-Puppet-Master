@@ -620,8 +620,7 @@ MonoBehaviour:
       maskRadius: 20
       maskFalloff: 1
       maskBlur: 0.25
-      maskOffsetTexture: {fileID: 2800000, guid: c55decd009c37f14fb34c077d95cb349,
-        type: 3}
+      maskOffsetTexture: {fileID: 2800000, guid: c55decd009c37f14fb34c077d95cb349, type: 3}
       maskOffset: 10
       albedoDarken: 0.35
       roughnessDecrease: 0.75
