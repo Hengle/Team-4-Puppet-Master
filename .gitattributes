@@ -3,3 +3,4 @@
 *.wav filter=lfs diff=lfs merge=lfs -text
 *.hdr filter=lfs diff=lfs merge=lfs -text
 ScottScene.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/ScottScene.unity filter=lfs diff=lfs merge=lfs -text
