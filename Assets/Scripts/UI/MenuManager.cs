@@ -12,20 +12,19 @@ public class MenuManager : MonoBehaviour
     public GameObject pcButtons;
     public GameObject devButtons;
     [Header("Sub Menus")]
-    public GameObject joinScreen;
-    public TMP_InputField joinAddress;
+    public TMP_InputField roomAddress;
 
-    private NetworkManager manager;
+    private NetworkManagerPhoton photonManager;
     private bool pcPlayer = true;
     private bool dev = false;
     private GameObject mainScreen;
     // Start is called before the first frame update
     void Awake()
     {
-#if UNITY_IOS || UNITY_ANDROID
-        pcPlayer = false;
-#elif UNITY_EDITOR
+#if UNITY_EDITOR
         dev = true;
+#elif UNITY_IOS || UNITY_ANDROID
+        pcPlayer = false;
 #endif
         if (pcPlayer)
         {
@@ -48,25 +47,17 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        manager = NetworkManager.singleton;
+        photonManager = NetworkManagerPhoton.instance;
     }
 
     public void HostGame()
     {
-        manager.StartHost();
-    }
-
-    public void JoinGameScreen()
-    {
-        mainScreen.SetActive(!mainScreen.activeSelf);
-        joinScreen.SetActive(!joinScreen.activeSelf);
-        joinAddress.text = manager.networkAddress;
+        photonManager.CreateRoom(roomAddress.text);
     }
 
     public void JoinGame()
     {
-        manager.networkAddress = joinAddress.text;
-        manager.StartClient();
+        photonManager.JoinRoom(roomAddress.text);
     }
 
     public void OpenSettings()

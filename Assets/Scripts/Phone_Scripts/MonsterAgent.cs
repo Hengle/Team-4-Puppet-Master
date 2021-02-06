@@ -8,9 +8,9 @@ public class MonsterAgent : NetworkedAgent
     public GameObject mobileCanvasPrefab;
 
     private MobileJoystick_UI joystick;
-    public override void OnStartGame(NetworkConnection conn, StartGameMessage message)
+    public override void OnStartGame()
     {
-        base.OnStartGame(conn, message);
+        base.OnStartGame();
 
         Debug.Log("Phone Start");
 
