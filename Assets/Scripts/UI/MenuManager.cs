@@ -51,11 +51,13 @@ public class MenuManager : MonoBehaviour
 
     public void HostGame()
     {
+        SetCharacter(PlayerTypes.Human);
         photonManager.CreateRoom(roomAddress.text);
     }
 
     public void JoinGame()
     {
+        SetCharacter(PlayerTypes.Spider);
         photonManager.JoinRoom(roomAddress.text);
     }
 
@@ -69,5 +71,8 @@ public class MenuManager : MonoBehaviour
 
     }
 
-
+    private void SetCharacter(PlayerTypes type)
+    {
+        PlayerPrefs.SetInt("PlayerType", (int)type);
+    }
 }
