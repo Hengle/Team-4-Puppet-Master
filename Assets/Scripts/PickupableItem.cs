@@ -9,9 +9,14 @@ public class PickupableItem : MonoBehaviour
     public bool onGround = true;
     public bool selected = false;
 
+    public enum Type { winItem, rangeItem, meleeItem, otherItem}
 
+    public Type thisType;
 
+    //win item= usb/key
+    //weapon item? (pipe, etc?)
 
+    //potential for later trap item
     void Use() 
     {
         
