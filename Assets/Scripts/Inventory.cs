@@ -4,114 +4,140 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<PickupableItem> list;
-    bool nearItem = false;
-    int winCount = 0;
+    /// <summary>
+    /// List of items the player has collected
+    /// </summary>
+    public List<PickupableItem> itemList;
+    /// <summary>
+    /// number of win items needed to trigger the win condition
+    /// </summary>
+    public int winTarget;
+
+    //how many win items have been collected so far
+    private int winCount = 0;
+    //list of pickupable items near the player
+    private List<PickupableItem> nearItems;
 
     void Start()
     {
-        list = new List<PickupableItem>();
+        //initialize item lists
+        itemList = new List<PickupableItem>();
+        nearItems = new List<PickupableItem>();
     }
 
+    //called once per frame
     private void Update()
     {
+        //Get input from the player
+        HandleInput();
+    }
+
+    /// <summary>
+    /// Handles recieving input from the player
+    /// </summary>
+    private void HandleInput()
+    {
+        //Equip a melee item
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            foreach(PickupableItem item in list)
-            {
-                if (item.thisType == PickupableItem.Type.meleeItem)
-                {
-                    item.selected = true;
-                }
-                else
-                {
-                    item.selected = false;
-                }
-            }
+            SelectItem(PickupableItem.Type.meleeItem);
         }
+        //equip a ranged item
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            foreach (PickupableItem item in list)
-            {
-                if (item.thisType == PickupableItem.Type.rangeItem)
-                {
-                    item.selected = true;
-                }
-                else
-                {
-                    item.selected = false;
-                }
-            }
+            SelectItem(PickupableItem.Type.rangeItem);
         }
+        //equip a win item
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            foreach (PickupableItem item in list)
+            SelectItem(PickupableItem.Type.winItem);
+        }
+        //pickup all nearby items
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            foreach (PickupableItem item in nearItems)
             {
+                //add the item to the item list
+                itemList.Add(item);
+
+                //if it is a win item
                 if (item.thisType == PickupableItem.Type.winItem)
                 {
-                    item.selected = true;
+                    //increment the win counter
+                    winCount++;
+
+                    //check if the player has reached the win condition
+                    if (winCount == winTarget)
+                    {
+                        Win();
+                    }
                 }
-                else
-                {
-                    item.selected = false;
-                }
+                //destroy the gameobject for this item (may cause issues?)
+                Destroy(item.gameObject);
             }
+            //clear the nearItems list
+            nearItems.Clear();
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    /// <summary>
+    /// selects the items of a given type in the list
+    /// </summary>
+    /// <param name="type"></param>
+    private void SelectItem(PickupableItem.Type type)
     {
-        if (other.gameObject.CompareTag("Pickupable"))
+        foreach (PickupableItem item in itemList)
         {
-            nearItem = true;
-            PickupableItem item = other.GetComponent<PickupableItem>();
-            if (item == null)
+            if (item.thisType == type)
             {
-                Debug.LogError("Item does not have PickupableItem component");
-                nearItem = false;
-            }
-            else if (!item.onGround)
-                nearItem = false;
-        }
-        else
-            nearItem = false;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (nearItem && other.gameObject.CompareTag("Pickupable") && Input.GetKeyDown(KeyCode.E))
-        {
-            PickupableItem item = other.GetComponent<PickupableItem>();
-            if (item == null)
-            {
-                Debug.LogError("Item does not have PickupableItem component");
-                nearItem = false;
-                return;
+                item.selected = true;
             }
             else
             {
-                if (item.onGround)
-                {
-                    list.Add(item);
-                    if (item.thisType == PickupableItem.Type.winItem)
-                    {
-                        winCount++;
-                        if (winCount == 5)
-                        {
-                            //CALL A SAFE ZONE/WIN CONDITION LOCATION FOR KEYS HERE (PROBS IN GAME MANAGER)
-                        }
-                    }
-                    if (item.thisType == PickupableItem.Type.weaponItem)
-                    {
-                        //EQUIP? ONCE YOU UNLOCK YOU CAN USE WITH BUTTON?
-                    }
-                    item.onGround = false;
-                    Destroy(other.gameObject);
-                }
+                item.selected = false;
             }
         }
-        else
-            nearItem = false;
+    }
+
+    /// <summary>
+    /// Called when the player collects enough win items
+    /// </summary>
+    private void Win()
+    {
+
+    }
+
+    //Called when a trigger enters this collider
+    void OnTriggerEnter(Collider other)
+    {
+        //if the collider was from a pickupable
+        if (other.gameObject.CompareTag("Pickupable"))
+        {
+            //get the item script
+            PickupableItem item = other.GetComponent<PickupableItem>();
+            //if the script is not null
+            if (item != null)
+            {
+                //add the item to the near items list
+                nearItems.Add(item);
+            }
+        }
+    }
+    //Called when a trigger exits this collider
+    private void OnTriggerExit(Collider other)
+    {
+        //if the collider was from a pickupable
+        if (other.gameObject.CompareTag("Pickupable"))
+        {
+            //get the item script
+            PickupableItem item = other.GetComponent<PickupableItem>();
+            //if the script is not null and this item is in the near items list
+            if (item != null && nearItems.Contains(item))
+            {
+                //remove the item from the near items list
+                nearItems.Remove(item);
+            }
+        }
     }
 
 }
