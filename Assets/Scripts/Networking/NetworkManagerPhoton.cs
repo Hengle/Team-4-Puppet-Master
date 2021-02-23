@@ -8,7 +8,7 @@ public class NetworkManagerPhoton : MonoBehaviourPunCallbacks
 {
     public static NetworkManagerPhoton instance;
 
-    private string GameplaySceneName = "TwoBlocks";
+    public string GameplaySceneName = "TwoBlocks";
 
     private void Awake()
     {

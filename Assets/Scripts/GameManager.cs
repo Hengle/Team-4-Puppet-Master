@@ -9,12 +9,23 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
+public enum PlayerTypes
+{
+    Human,
+    Spider,
+    Shadow
+}
+
 public class GameManager : MonoBehaviourPunCallbacks
 {
     /// <summary>
     /// reference to this game manager instance
     /// </summary>
     public static GameManager instance;
+    /// <summary>
+    /// reference to the number of player types available
+    /// </summary>
+    public static int numPlayerTypes = Enum.GetNames(typeof(PlayerTypes)).Length;
 
     #region Public attributes
     [Header("Server Settings")]
@@ -26,7 +37,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     /// <summary>
     /// prefab to sppawn player agents from
     /// </summary>
-    public GameObject agentPrefab;
+    [EnumNamedArray(typeof(PlayerTypes))]
+    public GameObject[] agentPrefabs = new GameObject[Enum.GetNames(typeof(PlayerTypes)).Length];
 
     [Header("Spawn Locations")]
     /// <summary>
@@ -80,7 +92,9 @@ public class GameManager : MonoBehaviourPunCallbacks
             currentRoom.MaxPlayers = (byte)maxPlayers;
         }
 
-        localAgent = PhotonNetwork.Instantiate(agentPrefab.name, lobbyLocations[currentRoom.PlayerCount - 1].position, Quaternion.identity);
+        Debug.LogError(PlayerPrefs.GetInt("PlayerType"));
+
+        localAgent = PhotonNetwork.Instantiate(agentPrefabs[PlayerPrefs.GetInt("PlayerType")].name, lobbyLocations[currentRoom.PlayerCount - 1].position, Quaternion.identity);
         Debug.Log(currentRoom.PlayerCount);
 
         UpdateLobbyText();
@@ -92,7 +106,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         currentRoom.IsOpen = false;
-        playerCount.gameObject.SetActive(false);
         StartButton.SetActive(false);
         //Tell all player objects to start the game
         photonView.RPC("OnStartGame", RpcTarget.All);
@@ -102,7 +115,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void OnStartGame()
     {
         Camera.main.enabled = false;
-
+        playerCount.gameObject.SetActive(false);
         localAgent.GetComponent<NetworkedAgent>().OnStartGame();
     }
 
@@ -121,6 +134,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void UpdateLobbyText()
     {
         playerCount.text = $"Players: {currentRoom.PlayerCount}/{maxPlayers}";
+    }
+
+    /// <summary>
+    /// Ensures the agentPrefabs array is the correct size
+    /// </summary>
+    void OnValidate()
+    {
+        if (agentPrefabs.Length != numPlayerTypes)
+        {
+            Array.Resize(ref agentPrefabs, numPlayerTypes);
+        }
     }
 
     #region Photon Callbacks
