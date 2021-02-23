@@ -186,7 +186,7 @@ Shader "Hidden/OverCloud/ScatteringMask"
 
 						// Projected shadow
 						float3 cs = CloudShadowCoordinates(t);
-						float cloudVolume = tex2Dlod(_OC_CloudShadowsTex, float4(cs.xy, 0, 0)) * _OC_CloudShadowsOpacity;
+						float cloudVolume = tex2Dlod(_OC_CloudShadowsTex, float4(cs.xy, 0, 0));
 
 						// Get cloud shadow
 						float heightDelta = saturate((t.y - _CloudVolumeFloor) * _OC_CloudHeightInv * 0.5);

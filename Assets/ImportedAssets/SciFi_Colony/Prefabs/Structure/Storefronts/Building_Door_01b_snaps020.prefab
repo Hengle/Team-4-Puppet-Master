@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9081401860798184992}
   - component: {fileID: 9081401860797185248}
   - component: {fileID: 6912472872817656061}
-  - component: {fileID: 7986079652391925216}
   m_Layer: 0
   m_Name: Building_Door_01b_snaps020_LOD3
   m_TagString: Untagged
@@ -57,6 +56,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -68,6 +69,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -80,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6912472872817656061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,18 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1651273, y: 2.3602662, z: 0.02021174}
   m_Center: {x: 0.00018066168, y: 1.1801274, z: -0.028893925}
---- !u!114 &7986079652391925216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9081401860794982944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9081401860794982952
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +218,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -239,6 +232,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -251,6 +245,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7438993482146763405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -276,7 +271,6 @@ GameObject:
   - component: {fileID: 9081401860798185004}
   - component: {fileID: 9081401860797185260}
   - component: {fileID: 8147716535455401506}
-  - component: {fileID: 3240471663114476735}
   m_Layer: 0
   m_Name: Building_Door_01b_snaps020_LOD1
   m_TagString: Untagged
@@ -321,6 +315,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -333,6 +329,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -345,6 +342,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &8147716535455401506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -358,18 +356,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.165127, y: 2.3602662, z: 0.03250563}
   m_Center: {x: 0.00018072128, y: 1.1801274, z: -0.022749547}
---- !u!114 &3240471663114476735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9081401860794982956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9081401860794982958
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +368,6 @@ GameObject:
   - component: {fileID: 9081401860798185006}
   - component: {fileID: 9081401860797185262}
   - component: {fileID: 4698176468794064266}
-  - component: {fileID: 1542589056875825358}
   m_Layer: 0
   m_Name: Building_Door_01b_snaps020_LOD2
   m_TagString: Untagged
@@ -427,6 +412,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -439,6 +426,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -451,6 +439,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4698176468794064266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -464,15 +453,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1651273, y: 2.3602662, z: 0.03250492}
   m_Center: {x: 0.00018066168, y: 1.1801274, z: -0.022749191}
---- !u!114 &1542589056875825358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9081401860794982958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

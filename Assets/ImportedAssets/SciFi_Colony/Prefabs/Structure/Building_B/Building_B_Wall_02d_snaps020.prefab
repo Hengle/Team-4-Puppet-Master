@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8414562325250327544}
   - component: {fileID: 8414562325251424568}
   - component: {fileID: 4038808438616403899}
-  - component: {fileID: 164802238575955560}
   m_Layer: 0
   m_Name: Building_B_Wall_02d_snaps020_LOD2
   m_TagString: Untagged
@@ -56,6 +55,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -68,6 +69,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -80,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4038808438616403899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,18 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.21078049, y: 4, z: 2.0001671}
   m_Center: {x: -0.069390096, y: 2, z: 1.0000826}
---- !u!114 &164802238575955560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8414562325249236984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8414562325249236986
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +108,6 @@ GameObject:
   - component: {fileID: 8414562325250327546}
   - component: {fileID: 8414562325251424570}
   - component: {fileID: 6436648741866771561}
-  - component: {fileID: 632247235701835049}
   m_Layer: 0
   m_Name: Building_B_Wall_02d_snaps020_LOD1
   m_TagString: Untagged
@@ -161,6 +151,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -173,6 +165,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -185,6 +178,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6436648741866771561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -198,18 +192,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2157805, y: 4, z: 2.0001671}
   m_Center: {x: -0.0718901, y: 2, z: 1.0000826}
---- !u!114 &632247235701835049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8414562325249236986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8414562325249236988
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +247,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -277,6 +261,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -289,6 +274,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1667667469993664803
 BoxCollider:
   m_ObjectHideFlags: 0

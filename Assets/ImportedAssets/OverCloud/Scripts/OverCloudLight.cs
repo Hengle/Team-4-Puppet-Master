@@ -179,7 +179,7 @@ namespace OC
 					// Only allow one active directional light at a time
 					light.enabled = (light == OverCloud.dominantLight) && !(light.color.r == 0 && light.color.g == 0 && light.color.b == 0);
 
-					// Check if we need to initialize or clear buffers for this light
+					// Check if we need to initialize or clear buffers for this lightp
 					if (light.enabled && !m_BufferInitialized)
 						InitializeBuffers();
 					else if (!light.enabled && m_BufferInitialized)

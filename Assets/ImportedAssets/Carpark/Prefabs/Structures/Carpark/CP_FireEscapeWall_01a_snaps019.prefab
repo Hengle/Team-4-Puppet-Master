@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7724301614371248308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1356930482211697275}
+  m_Layer: 0
+  m_Name: CP_FireEscapeWall_01a_snaps019
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1356930482211697275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724301614371248308}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8415726970654586127}
+  - {fileID: 23025867594541284}
+  - {fileID: 36575136784035022}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3851990996897552201
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1356930482211697275}
+    m_Modifications:
+    - target: {fileID: 3631365198890238107, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_Name
+      value: CP_FireEscapeWallPiece_01a_snaps019
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7089b6d312b4d484ea508a8bcacd509c, type: 3}
+--- !u!4 &36575136784035022 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3888002323658275719, guid: 7089b6d312b4d484ea508a8bcacd509c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3851990996897552201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5301921164822619577
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1356930482211697275}
+    m_Modifications:
+    - target: {fileID: 6052873080036080015, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_Name
+      value: FireEscapeDoor_01a_snaps019
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.248
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94778b5e30c8bcd44926db7b638b4c3d, type: 3}
+--- !u!4 &23025867594541284 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5315928520218545501, guid: 94778b5e30c8bcd44926db7b638b4c3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5301921164822619577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8297258110614310222
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1356930482211697275}
+    m_Modifications:
+    - target: {fileID: 8831861446128814153, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_Name
+      value: FireEscapeDoorFrame_01a_snaps019
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.90014
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.248
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f4bce49c85f7a5d48bcef05f2dae36d5, type: 3}
+--- !u!4 &8415726970654586127 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 571784929058191425, guid: f4bce49c85f7a5d48bcef05f2dae36d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8297258110614310222}
+  m_PrefabAsset: {fileID: 0}

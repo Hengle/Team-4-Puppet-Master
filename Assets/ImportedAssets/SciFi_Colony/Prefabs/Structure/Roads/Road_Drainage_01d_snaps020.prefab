@@ -121,6 +121,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -132,6 +134,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -144,6 +147,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &282897890523584228
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -169,7 +173,6 @@ GameObject:
   - component: {fileID: 5802637065261862148}
   - component: {fileID: 5802637065260863428}
   - component: {fileID: 1712739663457364946}
-  - component: {fileID: 7347123185328262037}
   m_Layer: 0
   m_Name: Road_Drainage_01d_snaps020_LOD1
   m_TagString: Untagged
@@ -213,6 +216,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -224,6 +229,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -236,6 +242,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1712739663457364946
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -249,18 +256,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5000012, y: 0.044088002, z: 0.5000003}
   m_Center: {x: 0.75000024, y: 0.022043759, z: 0.24999648}
---- !u!114 &7347123185328262037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5802637065258602756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5802637065258602758
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +268,6 @@ GameObject:
   - component: {fileID: 5802637065261862150}
   - component: {fileID: 5802637065260863430}
   - component: {fileID: 3057585528868761801}
-  - component: {fileID: 394944637092524651}
   m_Layer: 0
   m_Name: Road_Drainage_01d_snaps020_LOD2
   m_TagString: Untagged
@@ -317,6 +311,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -328,6 +324,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -340,6 +337,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3057585528868761801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -353,18 +351,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5000012, y: 0.041918013, z: 0.5000003}
   m_Center: {x: 0.75000024, y: 0.020958764, z: 0.24999648}
---- !u!114 &394944637092524651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5802637065258602758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5802637065258602760
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +363,6 @@ GameObject:
   - component: {fileID: 5802637065261862152}
   - component: {fileID: 5802637065260863432}
   - component: {fileID: 508959893347093720}
-  - component: {fileID: 6608628749282567061}
   m_Layer: 0
   m_Name: Road_Drainage_01d_snaps020_LOD3
   m_TagString: Untagged
@@ -421,6 +406,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -432,6 +419,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -444,6 +432,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &508959893347093720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -457,15 +446,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5000012, y: 0.041918013, z: 0.5000003}
   m_Center: {x: 0.75000024, y: 0.020958764, z: 0.24999648}
---- !u!114 &6608628749282567061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5802637065258602760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

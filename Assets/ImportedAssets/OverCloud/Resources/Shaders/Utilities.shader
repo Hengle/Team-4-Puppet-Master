@@ -141,7 +141,7 @@ Shader "Hidden/OverCloud/Utilities"
 
 				float2 compositorCoords = max(i.worldPos.xz - _OC_CloudWorldExtentsMinMax.xy, 0) * _OC_CloudWorldExtents.zw;
 
-				float shadow = tex2D(_OC_CompositorTex, compositorCoords).r;
+				float shadow = tex2D(_OC_CompositorTex, compositorCoords).r * 5;
 
 				// compositor.r = CloudDensity(i.worldPos);
 				// shadow = smoothstep(0, .5, shadow.r);

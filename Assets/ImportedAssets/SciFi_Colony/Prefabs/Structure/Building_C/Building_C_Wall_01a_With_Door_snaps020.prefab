@@ -56,6 +56,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -68,6 +70,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -80,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &2872553830383156791
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90,9 +94,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: bb5855161d6ed974bb5b0e0cce4529c6, type: 3}
 --- !u!1 &1031165979509095562
 GameObject:
@@ -169,7 +173,6 @@ GameObject:
   - component: {fileID: 1031165979509956748}
   - component: {fileID: 1031165979511087692}
   - component: {fileID: 1599379417409960620}
-  - component: {fileID: 6123744996454555321}
   m_Layer: 0
   m_Name: Building_C_Wall_01a_snaps020_LOD2
   m_TagString: Untagged
@@ -214,6 +217,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -225,6 +230,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -237,6 +243,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &1599379417409960620
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -247,22 +254,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: bb5855161d6ed974bb5b0e0cce4529c6, type: 3}
---- !u!114 &6123744996454555321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031165979509095564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1031165979509095566
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +270,6 @@ GameObject:
   - component: {fileID: 1031165979509956750}
   - component: {fileID: 1031165979511087694}
   - component: {fileID: 7577225708662010538}
-  - component: {fileID: 6744927386043015428}
   m_Layer: 0
   m_Name: Building_C_Wall_01a_snaps020_LOD1
   m_TagString: Untagged
@@ -320,6 +314,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -332,6 +328,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -344,6 +341,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &7577225708662010538
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -354,22 +352,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: bb5855161d6ed974bb5b0e0cce4529c6, type: 3}
---- !u!114 &6744927386043015428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031165979509095566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2167069801937301497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -377,11 +363,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1031165979509186730}
     m_Modifications:
-    - target: {fileID: 175331218696187288, guid: cb3bf34cc89895f4895d46c1ff7b8add,
-        type: 3}
-      propertyPath: m_Name
-      value: Building_C_Door_01b_snaps020
-      objectReference: {fileID: 0}
     - target: {fileID: 175331218696155576, guid: cb3bf34cc89895f4895d46c1ff7b8add,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -437,6 +418,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 175331218696187288, guid: cb3bf34cc89895f4895d46c1ff7b8add,
+        type: 3}
+      propertyPath: m_Name
+      value: Building_C_Door_01b_snaps020
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb3bf34cc89895f4895d46c1ff7b8add, type: 3}
 --- !u!4 &2052546661499625025 stripped
@@ -452,11 +438,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1031165979509186730}
     m_Modifications:
-    - target: {fileID: 1914227159022842044, guid: 1f6135d45f566c8468d32fe5b2fa1993,
-        type: 3}
-      propertyPath: m_Name
-      value: Building_C_Door_01a_snaps020
-      objectReference: {fileID: 0}
     - target: {fileID: 1914227159022546076, guid: 1f6135d45f566c8468d32fe5b2fa1993,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -511,6 +492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914227159022842044, guid: 1f6135d45f566c8468d32fe5b2fa1993,
+        type: 3}
+      propertyPath: m_Name
+      value: Building_C_Door_01a_snaps020
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f6135d45f566c8468d32fe5b2fa1993, type: 3}

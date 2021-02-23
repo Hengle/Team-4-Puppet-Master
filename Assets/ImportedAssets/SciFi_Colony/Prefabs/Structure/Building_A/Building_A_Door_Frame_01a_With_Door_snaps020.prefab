@@ -54,6 +54,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -66,6 +68,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -78,6 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3849610589808046195
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +156,6 @@ GameObject:
   - component: {fileID: 3849610589807619157}
   - component: {fileID: 3849610589808946293}
   - component: {fileID: 3849610589810044597}
-  - component: {fileID: 7244591877334060738}
   m_Layer: 0
   m_Name: Building_A_Door_Frame_01a_snaps020_LOD2
   m_TagString: Untagged
@@ -196,6 +199,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -208,6 +213,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -220,18 +226,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7244591877334060738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3849610589808046197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3849610589808046199
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +238,6 @@ GameObject:
   - component: {fileID: 3849610589807619159}
   - component: {fileID: 3849610589808946295}
   - component: {fileID: 3849610589810044599}
-  - component: {fileID: 5302718093188606399}
   m_Layer: 0
   m_Name: Building_A_Door_Frame_01a_snaps020_LOD1
   m_TagString: Untagged
@@ -287,6 +281,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -299,6 +295,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -311,18 +308,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5302718093188606399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3849610589808046199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575d9b3c6266dd64da966fcc573aeaba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &193441838062780953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,16 +316,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3849610589807619155}
     m_Modifications:
-    - target: {fileID: 7478924435275616086, guid: 0cb2ade0135e0dc4aac9755cbad19579,
-        type: 3}
-      propertyPath: m_Name
-      value: Building_A_Door_01a_snaps020
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478924435275616086, guid: 0cb2ade0135e0dc4aac9755cbad19579,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 65
-      objectReference: {fileID: 0}
     - target: {fileID: 7478924435275125622, guid: 0cb2ade0135e0dc4aac9755cbad19579,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -410,6 +386,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 65
       objectReference: {fileID: 0}
+    - target: {fileID: 7478924435275616086, guid: 0cb2ade0135e0dc4aac9755cbad19579,
+        type: 3}
+      propertyPath: m_Name
+      value: Building_A_Door_01a_snaps020
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478924435275616086, guid: 0cb2ade0135e0dc4aac9755cbad19579,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb2ade0135e0dc4aac9755cbad19579, type: 3}
 --- !u!4 &7306321242749817199 stripped
@@ -425,16 +411,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3849610589807619155}
     m_Modifications:
-    - target: {fileID: 5303922631908996520, guid: fe7a6e352322dd04784d48d749ab5c4d,
-        type: 3}
-      propertyPath: m_Name
-      value: Building_A_Door_02a_snaps020
-      objectReference: {fileID: 0}
-    - target: {fileID: 5303922631908996520, guid: fe7a6e352322dd04784d48d749ab5c4d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 65
-      objectReference: {fileID: 0}
     - target: {fileID: 5303922631908567432, guid: fe7a6e352322dd04784d48d749ab5c4d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -489,6 +465,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303922631908996520, guid: fe7a6e352322dd04784d48d749ab5c4d,
+        type: 3}
+      propertyPath: m_Name
+      value: Building_A_Door_02a_snaps020
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303922631908996520, guid: fe7a6e352322dd04784d48d749ab5c4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 5303922631908996522, guid: fe7a6e352322dd04784d48d749ab5c4d,
         type: 3}

@@ -676,7 +676,6 @@ namespace OC
 		/// <summary>
 		/// The current floating origin offset.
 		/// </summary>
-		/// 
 		public static Vector3			currentOriginOffset;
 
 		/// <summary>
@@ -1521,13 +1520,6 @@ namespace OC
 				/// </summary>
 				[Tooltip("Whether to render cloud shadows or not. If unchecked, cloud shadows will not appear, no matter the intensity.")]
 				public bool					enabled = true;
-
-				/// <summary>
-				/// Shadows global intensity multiplier.
-				/// </summary>
-				[Tooltip("Shadows global intensity multiplier.")]
-				[Range(0, 10)]
-				public float				intensity = 5f;
 				/// <summary>
 				/// Whether to automatically inject cloud shadows in the screenspace shadows mask or not. For deferred rendering, it is better to swap out the deferred shader. Please see the documentation for info on how to do this.
 				/// </summary>
@@ -1632,6 +1624,11 @@ namespace OC
 		public class Weather
 		{
 			// -------------------- Wind --------------------
+			/// <summary>
+			/// The current wind time. This is used to drive the positions of the clouds.
+			/// </summary>
+			public float				windTime;
+
 			/// <summary>
 			/// The timescale for the wind. Should probably be left at 1 unless you want the appearance of time moving at an increased rate.
 			/// </summary>
@@ -1844,7 +1841,7 @@ namespace OC
 		/// <summary>
 		/// Settings related to weather effects.
 		/// </summary>
-		public Weather weather { get { return m_Weather; } }
+		public static Weather weather { get { return instance.m_Weather; } }
 
 		/// <summary>
 		/// Class containing all settings for the time of day system.
@@ -2094,7 +2091,6 @@ namespace OC
 
 		Rect								m_WorldExtents;
 		float								m_FadeTimer;
-		float								m_WindTimer;
 		float								m_LastRadius;
 		float								m_LastLodMultiplier;
 		float								m_LightningTimer;
@@ -2140,7 +2136,14 @@ namespace OC
 
 		void TryLoadShader (string name, out Material material)
 		{
-			material = new Material(Shader.Find(name));
+			var shader = Shader.Find(name);
+			if (!shader)
+			{
+				Debug.LogError("OverCloud fatal error: Unable to find shader " + name);
+				material = null;
+				return;
+			}
+			material = new Material(shader);
 			if (!material)
 				Debug.LogError("Unable to load shader " + name + ", (file accidentally deleted?).");
 		}
@@ -2163,7 +2166,7 @@ namespace OC
 			TryLoadShader("Hidden/OverCloud/ScatteringMask",	out m_ScatteringMaskRTMat);
 			TryLoadShader("Hidden/OverCloud/Clear",				out m_ClearMat);
 			TryLoadShader("Hidden/OverCloud/Atmosphere",		out m_AtmosphereMat);
-			TryLoadShader("Hidden/SeparableBlur",				out m_SeparableBlurMat);			
+			TryLoadShader("Hidden/OverCloud/SeparableBlur",		out m_SeparableBlurMat);			
 
 			UpdateShaderProperties();
 			CheckComponents();
@@ -2194,7 +2197,8 @@ namespace OC
 			m_CurrentPreset = new WeatherPreset(m_TargetPreset);
 			m_PrevPreset	= new WeatherPreset(m_CurrentPreset);
 
-			m_WindTimer = 0;
+			// Reset the wind time
+			weather.windTime = 0;
 
 			// Reset floating origin if in editor + scene view
 			if (!Application.isPlaying)
@@ -2597,6 +2601,37 @@ namespace OC
 
 		#region Rendering
 
+#if UNITY_2019_3_OR_NEWER
+		static List<XRDisplaySubsystem> s_xrDisplaySubsystems = new List<XRDisplaySubsystem>();
+#endif
+
+		public static VRTextureUsage GetVRUsageFromCamera (Camera camera)
+		{
+#if !UNITY_2017_2_OR_NEWER
+			// Old VR namespace
+			return (camera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && UnityEngine.VR.VRSettings.enabled && UnityEngine.VR.VRDevice.isPresent) ? VRTextureUsage.TwoEyes : VRTextureUsage.None;
+#else
+			bool XRDevicePresent = false;
+
+	#if UNITY_2019_3_OR_NEWER
+			// Newer XR display system
+			SubsystemManager.GetInstances<XRDisplaySubsystem>(s_xrDisplaySubsystems);
+			foreach (var xrDisplay in s_xrDisplaySubsystems)
+			{
+				if (xrDisplay.running)
+				{
+					XRDevicePresent = true;
+				}
+			}
+	#else
+			// New but old XR namespace
+			XRDevicePresent = XRDevice.isPresent;
+	#endif
+
+			return (camera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && XRSettings.enabled && XRDevicePresent) ? VRTextureUsage.TwoEyes : VRTextureUsage.None;
+#endif
+		}
+
 		/// <summary>
 		/// Ensure accurate position/orientation data is fed to the ray marching shaders.
 		/// </summary>
@@ -2606,16 +2641,16 @@ namespace OC
 			// Set up some data needed for ray marching, as late as possible
 
 			// Determine if we are doing VR rendering or not
-			#if UNITY_2017_2_OR_NEWER
-			VRTextureUsage vrUsage = (camera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && XRSettings.enabled && XRDevice.isPresent) ? VRTextureUsage.TwoEyes : VRTextureUsage.None;
-			#endif
+#if UNITY_2017_2_OR_NEWER
+			VRTextureUsage vrUsage = GetVRUsageFromCamera(camera);
+#endif
 
 			// In 2018.3 and onward we can use XRSettings.stereoRenderingMode to tell from script if we are using single pass stereo
 			// In earlier versions we just have to always set both versions.
-			#if UNITY_2018_3_OR_NEWER
+#if UNITY_2018_3_OR_NEWER
 			if (vrUsage == VRTextureUsage.None || XRSettings.stereoRenderingMode == XRSettings.StereoRenderingMode.MultiPass)
 			{
-			#endif
+#endif
 				// Inverse view matrix
 				Matrix4x4 world_from_view = camera.cameraToWorldMatrix;
 
@@ -2629,11 +2664,11 @@ namespace OC
 				// Set matrices
 				Shader.SetGlobalMatrix("_WorldFromView", world_from_view);
 				Shader.SetGlobalMatrix("_ViewFromScreen", view_from_screen);
-			#if UNITY_2018_3_OR_NEWER
+#if UNITY_2018_3_OR_NEWER
 			}
 			else
 			{
-			#endif
+#endif
 				// Both stereo eye inverse view matrices
 				Matrix4x4 left_world_from_view = camera.GetStereoViewMatrix(Camera.StereoscopicEye.Left).inverse;
 				Matrix4x4 right_world_from_view = camera.GetStereoViewMatrix(Camera.StereoscopicEye.Right).inverse;
@@ -2653,9 +2688,9 @@ namespace OC
 				Shader.SetGlobalMatrix("_RightWorldFromView", right_world_from_view);
 				Shader.SetGlobalMatrix("_LeftViewFromScreen", left_view_from_screen);
 				Shader.SetGlobalMatrix("_RightViewFromScreen", right_view_from_screen);
-			#if UNITY_2018_3_OR_NEWER
+#if UNITY_2018_3_OR_NEWER
 			}
-			#endif
+#endif
 		}
 
 		/// <summary>
@@ -2787,11 +2822,7 @@ namespace OC
 			UpdateRaymarchingMatrices(camera);
 
 			// Determine if we are doing VR rendering or not
-			#if UNITY_2017_2_OR_NEWER
-			VRTextureUsage vrUsage = (camera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && UnityEngine.XR.XRSettings.enabled && UnityEngine.XR.XRDevice.isPresent) ? VRTextureUsage.TwoEyes : VRTextureUsage.None;
-			#else
-			VRTextureUsage vrUsage = (camera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && UnityEngine.VR.VRSettings.enabled && UnityEngine.VR.VRDevice.isPresent) ? VRTextureUsage.TwoEyes : VRTextureUsage.None;
-			#endif
+			VRTextureUsage vrUsage = GetVRUsageFromCamera(camera);
 
 			// To guarantee that the scene is not clipped at any point and instead fades smoothly in all directions,
 			// we have to apply a small adjustment to the far clip distance in the form of a 0.65x multiplier.
@@ -3816,7 +3847,7 @@ namespace OC
 			_OC_Cloudiness.value			= new Vector4(cloudiness_a, cloudiness_b, cloudiness_c, cloudiness_d);
 			_OC_CloudSharpness.value		= new Vector2(m_CurrentPreset.sharpness, m_CurrentPreset.macroSharpness);
 			_OC_CloudDensity.value			= new Vector2(m_CurrentPreset.opticalDensity, m_CurrentPreset.lightingDensity);
-			_OC_CloudShadowsParams.value	= new Vector2(m_CurrentPreset.cloudShadowsDensity, m_CurrentPreset.cloudShadowsOpacity * lighting.cloudShadows.intensity);
+			_OC_CloudShadowsParams.value = new Vector2(m_CurrentPreset.cloudShadowsDensity, m_CurrentPreset.cloudShadowsOpacity);
 			
 			// Scattering & fog
 			_OC_ScatteringMaskSoftness.value	= atmosphere.scatteringMask.softness;
@@ -3922,8 +3953,8 @@ namespace OC
 		/// <param name="camera">Camera to place weather effects around (lightning)</param>
 		void UpdateWeather (Camera camera)
 		{
-			m_WindTimer += Time.deltaTime * m_CurrentPreset.windMultiplier * weather.windTimescale * 10;
-			Shader.SetGlobalFloat("_OC_GlobalWindTime", m_WindTimer);
+			weather.windTime += Time.deltaTime * m_CurrentPreset.windMultiplier * weather.windTimescale * 10;
+			Shader.SetGlobalFloat("_OC_GlobalWindTime", weather.windTime);
 
 			// Cache last frame preset so we can determine if the sky changed later
 			if (m_LastFramePreset == null)
@@ -4529,7 +4560,7 @@ namespace OC
 
 			// Local density
 			// float2 uv = (worldPos.xz + float2(1, 0) * _OC_GlobalWindTime) * _OC_NoiseScale.x;
-			Vector2 uv = (new Vector2(worldPos.x, worldPos.z) + new Vector2(1, 0) * instance.m_WindTimer) * _OC_NoiseScale.value.x;
+			Vector2 uv = (new Vector2(worldPos.x, worldPos.z) + new Vector2(1, 0) * weather.windTime) * _OC_NoiseScale.value.x;
 
 			// float density = float density = tex2D(_OC_NoiseTex, uv).r;
 			float density = volumetricClouds.noiseTexture.GetPixelBilinear(uv.x, uv.y).r;
@@ -4545,7 +4576,7 @@ namespace OC
 
 			// Macro density
 			// uv = (worldPos.xz + float2(1, 0) * _OC_GlobalWindTime) * _OC_NoiseScale.y;
-			uv = (new Vector2(worldPos.x, worldPos.z) + new Vector2(1f, 0) * instance.m_WindTimer) * _OC_NoiseScale.value.y;
+			uv = (new Vector2(worldPos.x, worldPos.z) + new Vector2(1f, 0) * weather.windTime) * _OC_NoiseScale.value.y;
 
 			// float macroDensity = tex2D(_OC_NoiseTex, uv).g;
 			float macroDensity = volumetricClouds.noiseTexture.GetPixelBilinear(uv.x, uv.y).g;

@@ -86,7 +86,7 @@ namespace OC
 		[Tooltip("Enable the rain height mask. This is what prevents surfaces from being wet depending on their position beneath other geometry (dynamic wetness).")]
 		public bool				renderRainMask			= false;
 
-		new Camera				camera					= null;
+		public new Camera		camera					{ get; private set; }
 		// Flag used for multi-pass rendering to prevent running CameraUpdate twice
 		bool					hasUpdated				= false;
 

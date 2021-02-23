@@ -152,7 +152,6 @@ namespace OC
 			p_nightScattering,
 			p_lunarEclipseInfluence,
 			p_cloudShadowsEnabled,
-			p_cloudShadowsIntensity,
 			p_cloudShadowsMode,
 			p_cloudShadowsResolution,
 			p_cloudShadowsCoverage,
@@ -326,7 +325,6 @@ namespace OC
 			// Cloud Shadows
 			var cloudShadowsProperty			= lightingProperty.FindPropertyRelative("m_CloudShadows");
 			p_cloudShadowsEnabled				= cloudShadowsProperty.FindPropertyRelative("enabled");
-			p_cloudShadowsIntensity				= cloudShadowsProperty.FindPropertyRelative("intensity");
 			p_cloudShadowsMode					= cloudShadowsProperty.FindPropertyRelative("mode");
 			p_cloudShadowsResolution			= cloudShadowsProperty.FindPropertyRelative("resolution");
 			p_cloudShadowsCoverage				= cloudShadowsProperty.FindPropertyRelative("coverage");
@@ -424,6 +422,13 @@ namespace OC
 				ListStyle.normal.background = Texture2D.whiteTexture;
 				ListStyle.margin = new RectOffset(0, 0, 0, 0);
 				ListStyle.alignment = TextAnchor.MiddleLeft;
+			}
+			
+			if (RenderSettings.ambientMode == UnityEngine.Rendering.AmbientMode.Skybox && OverCloud.timeOfDay.play && OverCloud.timeOfDay.playSpeed > Mathf.Epsilon)
+			{
+				EditorGUILayout.HelpBox("The Environment Ambient mode is set to \"Skybox\" and Time Of Day is set to play. \n" +
+					"This might/will force an update of the environment lighting at some point, which can cause performance spikes. \n" +
+					"Consider switching the Environment Ambient mode to \"Gradient\" or disable dynamic Time Of Day to improve performance.", MessageType.Warning);
 			}
 
 			GUILayout.Label("Components", EditorStyles.boldLabel);
@@ -818,7 +823,6 @@ namespace OC
 
 				GUILayout.Label("Cloud Shadows", EditorStyles.boldLabel);
 				EditorGUILayout.PropertyField(p_cloudShadowsEnabled,			new GUIContent("Enabled"));
-				EditorGUILayout.PropertyField(p_cloudShadowsIntensity,			new GUIContent("Intensity"));
 				EditorGUILayout.PropertyField(p_cloudShadowsMode,				new GUIContent("Mode"));
 				EditorGUILayout.PropertyField(p_cloudShadowsResolution,			new GUIContent("Resolution"));
 				EditorGUILayout.PropertyField(p_cloudShadowsCoverage,			new GUIContent("Coverage"));

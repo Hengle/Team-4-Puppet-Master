@@ -1,4 +1,4 @@
-Shader "Hidden/SeparableBlur"
+Shader "Hidden/OverCloud/SeparableBlur"
 {
 	Properties
 	{

@@ -8,8 +8,7 @@ public enum ShaderPropertyType
     Vector = 1,
     Float = 2,
     Range = 3,
-    TexEnv = 4,
-    Texture = 5
+    TexEnv = 4
 }
 
 [ExecuteInEditMode]
