@@ -6,9 +6,7 @@ public class MeleeWeapon : PickupableItem
 {
     public float swingSpeed = 1;
     public float swingAngle = 45;
-    float swing = 0;
-
-
+    float swingCheck = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,26 +17,28 @@ public class MeleeWeapon : PickupableItem
     // Update is called once per frame
     void Update()
     {
-        if (!onGround && selected)
-        {
-
-            if ((Input.GetMouseButtonDown(0) && swing == 0) || swing > 0)
-                swingWeapon();
-        }
+       
 
     }
 
 
     void swingWeapon()
     {
-        swing += Time.deltaTime;
-        if (swing < swingSpeed / 2f)
-            transform.rotation = Quaternion.Euler(Mathf.Lerp(0, swingAngle, swing / (swingSpeed / 2f)), transform.eulerAngles.y, transform.eulerAngles.z);
-        else
-            transform.rotation = Quaternion.Euler(Mathf.Lerp(swingAngle, 0, (swing - swingSpeed / 2f) / (swingSpeed / 2f)), transform.eulerAngles.y, transform.eulerAngles.z);
+        if (!onGround && selected)
+        {
 
-        if (swing >= swingSpeed)
-            swing = 0;
+            if ((Input.GetMouseButtonDown(0) && swingCheck == 0) || swingCheck > 0)
+                swingWeapon();
+        }
+        swingCheck += Time.deltaTime;
+        if (swingCheck < swingSpeed / 2f)
+            transform.rotation = Quaternion.Euler(Mathf.Lerp(0, swingAngle, swingCheck / (swingSpeed / 2f)), transform.eulerAngles.y, transform.eulerAngles.z);
+        else
+            transform.rotation = Quaternion.Euler(Mathf.Lerp(swingAngle, 0, (swingCheck - swingSpeed / 2f) / (swingSpeed / 2f)), transform.eulerAngles.y, transform.eulerAngles.z);
+
+        if (swingCheck >= swingSpeed)
+            swingCheck = 0;
+       
     }
 
 
