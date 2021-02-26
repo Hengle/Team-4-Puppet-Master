@@ -13,6 +13,11 @@ public class RangeWeapon : PickupableItem
     // Start is called before the first frame update
     void shootProj()
     {
+        if (!onGround && selected)
+        {
+            if (Input.GetMouseButtonDown(0) && ammo > 0)
+                shootProj();
+        }
         Instantiate(projectile, transform.position, transform.rotation);
         ammo--;
     }
@@ -20,10 +25,6 @@ public class RangeWeapon : PickupableItem
     // Update is called once per frame
     void Update()
     {
-        if (!onGround && selected)
-        {
-            if (Input.GetMouseButtonDown(0) && ammo > 0)
-                shootProj();
-        }
+        
     }
 }
