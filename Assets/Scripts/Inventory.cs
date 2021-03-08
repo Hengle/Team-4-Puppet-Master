@@ -18,6 +18,8 @@ public class Inventory : MonoBehaviour
     //list of pickupable items near the player
     private List<PickupableItem> nearItems;
 
+    public bool inLocation = false;
+
     void Start()
     {
         //initialize item lists
@@ -67,9 +69,11 @@ public class Inventory : MonoBehaviour
                     winCount++;
 
                     //check if the player has reached the win condition
-                    if (winCount == winTarget)
+                    if (winCount == winTarget && inLocation == true)
                     {
+                       
                         Win();
+
                     }
                 }
                 //destroy the gameobject for this item (may cause issues?)
@@ -104,7 +108,7 @@ public class Inventory : MonoBehaviour
     /// </summary>
     private void Win()
     {
-
+        Debug.Log("You have collected all keys and dropped them at a safe location. Now face your fears");
     }
 
     //Called when a trigger enters this collider
