@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3707746518339562018}
   - component: {fileID: 3707746518339562019}
   - component: {fileID: 3707746518339562016}
+  - component: {fileID: 111330597839216908}
   m_Layer: 0
   m_Name: WinBoundaryArea
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3707746518339562017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalPosition: {x: 45.58, y: 0.41, z: -8.1}
+  m_LocalScale: {x: 7.628931, y: 0.9999992, z: 8.581703}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -49,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3707746518339562017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -108,3 +109,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2a1e65b38bba74cacf4976dcf4f0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!122 &111330597839216908
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3707746518339562017}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286437083
+  m_Size: 5

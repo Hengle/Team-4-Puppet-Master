@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
     //list of pickupable items near the player
     private List<PickupableItem> nearItems;
 
+
     public bool inLocation = false;
 
     void Start()
@@ -32,6 +33,13 @@ public class Inventory : MonoBehaviour
     {
         //Get input from the player
         HandleInput();
+
+        //check if the player has reached the win condition
+        if (winCount == winTarget && inLocation == true)
+        {
+            Win();
+        }
+
     }
 
     /// <summary>
@@ -68,13 +76,6 @@ public class Inventory : MonoBehaviour
                     //increment the win counter
                     winCount++;
 
-                    //check if the player has reached the win condition
-                    if (winCount == winTarget && inLocation == true)
-                    {
-                       
-                        Win();
-
-                    }
                 }
                 //destroy the gameobject for this item (may cause issues?)
                 Destroy(item.gameObject);
@@ -109,13 +110,15 @@ public class Inventory : MonoBehaviour
     private void Win()
     {
         Debug.Log("You have collected all keys and dropped them at a safe location. Now face your fears");
+        GameObject.Find("Main Light").GetComponent<Light>().intensity = 1;
+        winCount = 0;
     }
 
     //Called when a trigger enters this collider
     void OnTriggerEnter(Collider other)
     {
         //if the collider was from a pickupable
-        if (other.gameObject.CompareTag("Pickupable"))
+        if (other.gameObject.CompareTag("Pickuppable"))
         {
             //get the item script
             PickupableItem item = other.GetComponent<PickupableItem>();
@@ -131,7 +134,7 @@ public class Inventory : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //if the collider was from a pickupable
-        if (other.gameObject.CompareTag("Pickupable"))
+        if (other.gameObject.CompareTag("Pickuppable"))
         {
             //get the item script
             PickupableItem item = other.GetComponent<PickupableItem>();
