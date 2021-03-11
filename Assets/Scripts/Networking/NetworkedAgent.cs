@@ -24,6 +24,7 @@ public abstract class NetworkedAgent : MonoBehaviourPunCallbacks
         if(photonView.IsMine)
         {
             OnJoinLobby();
+            StartOverride();
         }
     }
 
@@ -42,6 +43,14 @@ public abstract class NetworkedAgent : MonoBehaviourPunCallbacks
         {
             FixedUpdateOverride();
         }
+    }
+
+    /// <summary>
+    /// Handles setting local values
+    /// </summary>
+    protected virtual void StartOverride()
+    {
+
     }
 
     /// <summary>

@@ -6,20 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
-    public int health = 100;
     public static int monsterCount = 0;
+    [Header("Game Over Screens")]
     public string playerFullWinScreen = "TitleScreen";    //All monsters die
     public string playerPartialWinScreen = "TitleScreen"; //Some monsters die
     public string playerLoseScreen = "TitleScreen";       //No Monsters die
+    [Header("Player Hit Attributes")]
+    public int health = 100;
     public bool justHit = false;
     public float timeHit = 0;
     public float secondsBetweenHits = 3;
-    // Start is called before the first frame update
-    void Start()
-    {
-        health = 100;
-        monsterCount = 0;
-    }
 
     // Update is called once per frame
     void Update()
@@ -32,19 +28,19 @@ public class PlayerScript : MonoBehaviour
     public static void monsterCounter()
     {
         monsterCount++;
-    }
+    }  
 
-    private void OnTriggerEnter(Collider collision)
+    public void GetHit()
     {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag == "MonsterAttack" & !justHit)
+        if(!justHit)
         {
             justHit = true;
-            health -= 50 ;
+            health -= 100;
             timeHit = Time.time;
             hitDelay();
         }
     }
+
     void hitDelay()
     {
         if(timeHit+secondsBetweenHits <= Time.time)
@@ -83,8 +79,6 @@ public class PlayerScript : MonoBehaviour
         {
             //TODO actual win
             SceneManager.LoadScene(playerFullWinScreen);
-
         }
-
     }
 }
