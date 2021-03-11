@@ -4081,5 +4081,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lobby/Spawns
       objectReference: {fileID: 0}
+    - target: {fileID: 6666307832196754337, guid: fb1189e9a5d71f94eb44ef332d87a858, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1189e9a5d71f94eb44ef332d87a858, type: 3}
