@@ -26,14 +26,21 @@ public class MonsterScript : MonoBehaviour
         playerDeadYet();
         checkIfDead();
     }
+
+    public void GetHit()
+    {
+        monsterHealth = 0;
+    }
+
     void checkIfDead()
     {
         if (monsterHealth <= 0)
         {
+            //Temporary way of showing monster death until further menus are developed
+            Destroy(gameObject);
             //TODO -- Die :)
-            PlayerScript.playerWins();
-            SceneManager.LoadScene(waitingScreen);
-
+            //PlayerScript.playerWins();
+            //SceneManager.LoadScene(waitingScreen);
         }
     }
     void playerDeadYet()
@@ -42,7 +49,6 @@ public class MonsterScript : MonoBehaviour
         {
             //TODO Actual end of game
             SceneManager.LoadScene(fullWinScreen);
-
         }
     }
     public static void playerDeathReport()
