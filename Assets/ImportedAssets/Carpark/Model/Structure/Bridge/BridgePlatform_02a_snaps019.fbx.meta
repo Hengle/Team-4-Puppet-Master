@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: e90c60e6ef667444794b41c8502e302a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BridgePlatform_02a_snaps019_LOD0
+    100004: BridgePlatform_02a_snaps019_LOD1
+    100006: BridgePlatform_02a_snaps019_LOD2
+    100008: BridgePlatform_02a_snaps019_LOD3
+    100010: BridgePlatform_02a_snaps019_LOD4
+    400000: //RootNode
+    400002: BridgePlatform_02a_snaps019_LOD0
+    400004: BridgePlatform_02a_snaps019_LOD1
+    400006: BridgePlatform_02a_snaps019_LOD2
+    400008: BridgePlatform_02a_snaps019_LOD3
+    400010: BridgePlatform_02a_snaps019_LOD4
+    2100000: blinn4
+    2100002: lambert6
+    2100004: blinn3
+    2100006: BridgePlatform_02a_snaps019_MAT
+    2100008: BridgePlatform_01a_snaps019_MAT
+    2100010: BridgeStairs_01a_snaps019_MAT
+    2100012: BridgePillar_01a_snaps019_MAT
+    2100014: Cement_01a_snaps019_MAT
+    2100016: BridgeStairs_02a_snaps019_MAT
+    2100018: Roof_01a_snaps019_MAT
+    2100020: Tiles_01a_snaps019_MAT
+    2300000: //RootNode
+    2300002: BridgePlatform_02a_snaps019_LOD0
+    2300004: BridgePlatform_02a_snaps019_LOD1
+    2300006: BridgePlatform_02a_snaps019_LOD2
+    2300008: BridgePlatform_02a_snaps019_LOD3
+    2300010: BridgePlatform_02a_snaps019_LOD4
+    3300000: //RootNode
+    3300002: BridgePlatform_02a_snaps019_LOD0
+    3300004: BridgePlatform_02a_snaps019_LOD1
+    3300006: BridgePlatform_02a_snaps019_LOD2
+    3300008: BridgePlatform_02a_snaps019_LOD3
+    3300010: BridgePlatform_02a_snaps019_LOD4
+    4300000: BridgePlatform_02a_snaps019
+    4300002: BridgePlatform_02a_snaps019_LOD0
+    4300004: BridgePlatform_02a_snaps019_LOD1
+    4300006: BridgePlatform_02a_snaps019_LOD2
+    4300008: BridgePlatform_02a_snaps019_LOD3
+    4300010: BridgePlatform_02a_snaps019_LOD4
+    20500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BridgePillar_01a_snaps019_MAT
+    second: {fileID: 2100000, guid: b17dfed947aa6da4ea6305acc64a9b3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BridgePlatform_01a_snaps019_MAT
+    second: {fileID: 2100000, guid: f7d55fafaa6b10642800e71b04237490, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BridgePlatform_02a_snaps019_MAT
+    second: {fileID: 2100000, guid: d82675840a7798944b725cab1a6ab84f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BridgeStairs_01a_snaps019_MAT
+    second: {fileID: 2100000, guid: 7974d112ed5df3c4c972117300329573, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BridgeStairs_02a_snaps019_MAT
+    second: {fileID: 2100000, guid: fd33334b50eed5e4996cf9dd5e795882, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cement_01a_snaps019_MAT
+    second: {fileID: 2100000, guid: fbca51f1442ee8f4c897b1cfb33a4569, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof_01a_snaps019_MAT
+    second: {fileID: 2100000, guid: dce62f8ad89a9ad43990cb4702df9995, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tiles_01a_snaps019_MAT
+    second: {fileID: 2100000, guid: d79e46e22795922478a076eb178287ba, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.0625
+    - 0.03125
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
