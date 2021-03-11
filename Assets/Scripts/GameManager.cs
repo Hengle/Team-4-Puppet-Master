@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     /// reference to the player count text
     /// </summary>
     public Text playerCount;
+
+    [Header("Game State")]
+    public bool playerHunting; 
     #endregion
 
     //reference to the current Photon room
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Awake()
     {
         instance = this;
+        playerHunting = false;
     }
 
     private void Start()
@@ -94,7 +98,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         Debug.LogError(PlayerPrefs.GetInt("PlayerType"));
 
-        localAgent = PhotonNetwork.Instantiate(agentPrefabs[PlayerPrefs.GetInt("PlayerType")].name, lobbyLocations[currentRoom.PlayerCount - 1].position, Quaternion.identity);
+        localAgent = PhotonNetwork.Instantiate(agentPrefabs[PlayerPrefs.GetInt("PlayerType")].name, lobbyLocations[currentRoom.PlayerCount - 1].position, Quaternion.Euler(0, 180, 0));
         Debug.Log(currentRoom.PlayerCount);
 
         UpdateLobbyText();
