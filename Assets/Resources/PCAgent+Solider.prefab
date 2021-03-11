@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 2446139771253913341, guid: 3af83de3e93cbca4db33a656f693c754,
         type: 3}
       propertyPath: m_Name
-      value: PCAgent
+      value: PCAgent+Solider
       objectReference: {fileID: 0}
     - target: {fileID: 8812322401986548397, guid: 3af83de3e93cbca4db33a656f693c754,
         type: 3}
