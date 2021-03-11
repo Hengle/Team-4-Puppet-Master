@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ScottScene.unity
     guid: 55c3939fb3dbec147a31998d70b0cccd
   - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
+    path: Assets/Scenes/TitleScreen-Old.unity
     guid: c54f6e306f22a704aa6ce5b91ec1e553
   - enabled: 1
-    path: Assets/Scenes/TwoBlocks.unity
+    path: Assets/Scenes/TwoBlocks-New.unity
     guid: 65a5f17ceb38bfc4da28e563d33f3cd4
   m_configObjects: {}
