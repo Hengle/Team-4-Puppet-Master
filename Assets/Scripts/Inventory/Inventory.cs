@@ -12,6 +12,10 @@ public class Inventory : MonoBehaviour
     /// number of win items needed to trigger the win condition
     /// </summary>
     public int winTarget;
+    /// <summary>
+    /// UI for if an item is nearby
+    /// </summary>
+    public GameObject PickupUI;
 
     //how many win items have been collected so far
     private int winCount = 0;
@@ -21,7 +25,7 @@ public class Inventory : MonoBehaviour
 
     public bool inLocation = false;
 
-    void Start()
+    void Awake()
     {
         //initialize item lists
         itemList = new List<PickupableItem>();
@@ -65,24 +69,29 @@ public class Inventory : MonoBehaviour
         //pickup all nearby items
         if (Input.GetKeyDown(KeyCode.E))
         {
-            foreach (PickupableItem item in nearItems)
-            {
-                //add the item to the item list
-                itemList.Add(item);
-
-                //if it is a win item
-                if (item.thisType == PickupableItem.Type.winItem)
-                {
-                    //increment the win counter
-                    winCount++;
-
-                }
-                //destroy the gameobject for this item (may cause issues?)
-                Destroy(item.gameObject);
-            }
-            //clear the nearItems list
-            nearItems.Clear();
+            PickupItems();
         }
+    }
+
+    private void PickupItems()
+    {
+        foreach (PickupableItem item in nearItems)
+        {
+            //add the item to the item list
+            itemList.Add(item);
+
+            //if it is a win item
+            if (item.thisType == PickupableItem.Type.winItem)
+            {
+                //increment the win counter
+                winCount++;
+            }
+            //destroy the gameobject for this item (may cause issues?)
+            Destroy(item.gameObject);
+        }
+        //clear the nearItems list
+        nearItems.Clear();
+        PickupUI.SetActive(false);
     }
 
     /// <summary>
@@ -127,6 +136,11 @@ public class Inventory : MonoBehaviour
             {
                 //add the item to the near items list
                 nearItems.Add(item);
+
+                if(PickupUI.activeSelf == false)
+                {
+                    PickupUI.SetActive(true);
+                }
             }
         }
     }
@@ -143,6 +157,11 @@ public class Inventory : MonoBehaviour
             {
                 //remove the item from the near items list
                 nearItems.Remove(item);
+
+                if(nearItems.Count == 0 && PickupUI.activeSelf == true)
+                {
+                    PickupUI.SetActive(false);
+                }
             }
         }
     }

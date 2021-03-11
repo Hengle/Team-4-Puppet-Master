@@ -6,20 +6,33 @@ using Photon.Realtime;
 
 public class NetworkManagerPhoton : MonoBehaviourPunCallbacks
 {
+    private enum GameplayScene
+    {
+        TwoBlocks,
+        ScottScene
+    }
+
+
     public static NetworkManagerPhoton instance;
 
-    public string GameplaySceneName = "TwoBlocks";
+    [SerializeField]
+    private GameplayScene gameplayScene;
+
+    private string GameplaySceneName;
+    private string[] SceneNames = { "TwoBlocks", "ScottScene" };
 
     private void Awake()
     {
         if(instance != null && instance != this)
         {
             gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         else
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            GameplaySceneName = SceneNames[(int)gameplayScene];
         }
     }
 
