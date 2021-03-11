@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2157e158a3f04f1418c047226e936a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameplaySceneName: ScottScene
+  gameplayScene: 0
 --- !u!4 &1248556195
 Transform:
   m_ObjectHideFlags: 0
