@@ -35,7 +35,7 @@ MonoBehaviour:
   - {fileID: 4283085012094585923}
   modelList:
   - {fileID: 6368924430890074588, guid: f20306c1a6a7ed94d89144739f78c980, type: 3}
-  - {fileID: 0}
+  - {fileID: 6368924430890074588, guid: 69de0636cf59b04488beb1075f7c859c, type: 3}
   - {fileID: 6368924430890074588, guid: 4afeb9aa8c9d1524fa8af41462eb1d6f, type: 3}
   winNumText: {fileID: 3205620772138433373}
   heldItem: {fileID: 8635131550174439864}
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8635131550174439864}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b66f609c63f3934db00f6625dd13230, type: 3}
   m_Name: 
@@ -551,12 +551,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8635131550174439864}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6800429ca8c5e2241a6a41d0dac5306d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 6368924430890074588, guid: 0648a01fdcc3d7c4d97976cf9ff874b4, type: 3}
   shootPos: {fileID: 6228111758129458399}
 --- !u!1001 &3088745648487929071
 PrefabInstance:
