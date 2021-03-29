@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Camera.main.enabled = false;
         playerCount.gameObject.SetActive(false);
+        gameObject.GetComponent<objectPlacement>().OnStartGame();
         localAgent.GetComponent<NetworkedAgent>().OnStartGame();
     }
 
