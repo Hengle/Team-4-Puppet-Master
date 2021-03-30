@@ -2,29 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangeWeapon : PickupableItem
+public class RangeWeapon : MonoBehaviour
 {
-    public int ammo;
-    public GameObject projectile;
-
-
+    public GameObject projectile, shootPos;
 
 
     // Start is called before the first frame update
     void shootProj()
     {
-        if (!onGround && selected)
-        {
-            if (Input.GetMouseButtonDown(0) && ammo > 0)
-                shootProj();
-        }
-        Instantiate(projectile, transform.position, transform.rotation);
-        ammo--;
+        Instantiate(projectile, shootPos.transform.position, shootPos.transform.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+            shootProj();
     }
 }
