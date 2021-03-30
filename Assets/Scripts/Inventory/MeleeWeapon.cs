@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeWeapon : PickupableItem
+public class MeleeWeapon : MonoBehaviour
 {
     public float swingSpeed = 1;
     public float swingAngle = 45;
@@ -13,23 +13,22 @@ public class MeleeWeapon : PickupableItem
     {
 
     }
+    private void OnDisable()
+    {
+        swingCheck = 0;
+        transform.rotation = Quaternion.Euler(Mathf.Lerp(0, swingAngle, swingCheck / (swingSpeed / 2f)), transform.eulerAngles.y, transform.eulerAngles.z);
+    }
 
     // Update is called once per frame
     void Update()
     {
-       
-
+        if ((Input.GetMouseButtonDown(0) && swingCheck == 0) || swingCheck > 0)
+            swingWeapon();
     }
 
 
     void swingWeapon()
     {
-        if (!onGround && selected)
-        {
-
-            if ((Input.GetMouseButtonDown(0) && swingCheck == 0) || swingCheck > 0)
-                swingWeapon();
-        }
         swingCheck += Time.deltaTime;
         if (swingCheck < swingSpeed / 2f)
             transform.rotation = Quaternion.Euler(Mathf.Lerp(0, swingAngle, swingCheck / (swingSpeed / 2f)), transform.eulerAngles.y, transform.eulerAngles.z);
@@ -38,7 +37,6 @@ public class MeleeWeapon : PickupableItem
 
         if (swingCheck >= swingSpeed)
             swingCheck = 0;
-       
     }
 
 
