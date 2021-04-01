@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviourPunCallbacks
 {
     public Image[] guiList;
     public GameObject[] modelList;
@@ -58,6 +59,11 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
+        if(!photonView.IsMine)
+        {
+            Destroy(this);
+        }
+
         //initialize item lists
         nearItems = new List<PickupableItem>();
 
