@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class objectPlacement : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class objectPlacement : MonoBehaviour
     {
         alreadyUsedLocation = new bool[winConditionLocationList.Count];
 
-        GameObject addedBow = Instantiate(bow, itemsArea);
+        GameObject addedBow = PhotonNetwork.Instantiate($"OnGround/{bow.name}", weaponLocationList[Random.Range(0, weaponLocationList.Count)], Quaternion.identity);
+        addedBow.transform.parent = itemsArea;
         addedBow.transform.localPosition = weaponLocationList[Random.Range(0, weaponLocationList.Count)];
-        GameObject addedAxe = Instantiate(axe, itemsArea);
+        GameObject addedAxe = PhotonNetwork.Instantiate($"OnGround/{axe.name}", Vector3.zero, Quaternion.identity);
+        addedAxe.transform.parent = itemsArea;
         addedAxe.transform.localPosition = weaponLocationList[Random.Range(0, weaponLocationList.Count)];
         for (int i = 0; i < 5; i++)
         {
@@ -26,12 +29,14 @@ public class objectPlacement : MonoBehaviour
             while (alreadyUsedLocation[rand])
                 rand = Random.Range(0, winConditionLocationList.Count);
 
-            GameObject addedUSB = Instantiate(usb, itemsArea);
+            GameObject addedUSB = PhotonNetwork.Instantiate($"OnGround/{usb.name}", Vector3.zero, Quaternion.identity);
+            addedUSB.transform.parent = itemsArea;
             addedUSB.transform.localPosition = winConditionLocationList[rand];
             alreadyUsedLocation[rand] = true;
-
         }
-        GameObject addedSafe = Instantiate(safe, itemsArea);
+
+        GameObject addedSafe = PhotonNetwork.Instantiate($"OnGround/{safe.name}", Vector3.zero, Quaternion.identity);
+        addedSafe.transform.parent = itemsArea;
         addedSafe.transform.localPosition = safeLocationList[Random.Range(0, safeLocationList.Count)];
 
     }
