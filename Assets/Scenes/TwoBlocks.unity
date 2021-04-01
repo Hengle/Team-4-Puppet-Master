@@ -4077,6 +4077,10 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1931417061874638321, guid: fb1189e9a5d71f94eb44ef332d87a858, type: 3}
+      propertyPath: m_TagString
+      value: UI Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 3911911900158631980, guid: fb1189e9a5d71f94eb44ef332d87a858, type: 3}
       propertyPath: m_Name
       value: Lobby/Spawns
