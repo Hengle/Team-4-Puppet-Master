@@ -14,35 +14,43 @@ public abstract class NetworkedAgent : MonoBehaviourPunCallbacks
     protected Camera agentCamera;
     protected int networkID;
     protected bool inputLocked;
+
+    private void Awake()
+    {
+        if(!photonView.IsMine)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            AwakeOverride();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         networkID = GameManager.instance.GetNumPlayers() - 1;
         Debug.Log($"Is Local Player: {photonView.IsMine}");
 
-        //check if this agent is controlled locally
-        if(photonView.IsMine)
-        {
-            OnJoinLobby();
-            StartOverride();
-        }
+        OnJoinLobby();
+        StartOverride();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(photonView.IsMine)
-        {
-            UpdateOverride();
-        }
+        UpdateOverride();
     }
 
     private void FixedUpdate()
     {
-        if(photonView.IsMine)
-        {
-            FixedUpdateOverride();
-        }
+        FixedUpdateOverride();
+    }
+
+    protected virtual void AwakeOverride()
+    {
+
     }
 
     /// <summary>
