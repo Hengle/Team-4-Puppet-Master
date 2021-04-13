@@ -12,9 +12,8 @@ public class HumanAgent : NetworkedAgent
     public float minCamXRot;
     public float maxCamXRot;
     [Header("Inventory Attributes")]
-    public GameObject PickupUIPrefab;
+    public GameObject PickupUI;
 
-    private GameObject PickupUI;
     private Inventory inventory;
     private PlayerScript playerHealth;
     private Vector2 cameraDelta;
@@ -24,8 +23,6 @@ public class HumanAgent : NetworkedAgent
         //initialize script references
         inventory = GetComponent<Inventory>();
         playerHealth = GetComponent<PlayerScript>();
-
-        SpawnUI();
     }
 
     protected override void StartOverride()
@@ -145,13 +142,6 @@ public class HumanAgent : NetworkedAgent
                 }
             }
         }
-    }
-
-    private void SpawnUI()
-    {
-        var canvas = GameObject.FindGameObjectWithTag("UI Canvas");
-
-        PickupUI = Instantiate(PickupUIPrefab, canvas.transform);
     }
 
     //Called when a trigger exits this collider
