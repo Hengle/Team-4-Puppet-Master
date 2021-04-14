@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,15 @@ public class Inventory : MonoBehaviourPunCallbacks
     public Text winNumText;
 
     public GameObject heldItem;
+
+   
+    // a timer that displays on the screen once the items have been collected
+    public Text timer;
+    public float timeToWin;
+    private float timeOfWin; // set to the current time when the win condition is called
+    private float timeLeft;
+    private float displayTime;
+    private bool timerActive = false;
 
     /// <summary>
     /// number of win items needed to trigger the win condition
@@ -77,10 +87,36 @@ public class Inventory : MonoBehaviourPunCallbacks
     //called once per frame
     private void Update()
     {
-        //check if the player has reached the win condition
         
-            if (numWinItems == winTarget && inLocation)
-                    Win();
+
+        //check if the player has reached the win condition
+
+        if (numWinItems == winTarget && inLocation)
+        {
+            Win();
+            Timer();
+
+        }
+
+    }
+
+    private void Timer()
+    {
+        float currentTime = ((float)DateTime.Now.Hour * 3600) + ((float)DateTime.Now.Minute * 60) + ((float)DateTime.Now.Second);
+        timeLeft = currentTime - timeOfWin; // gives a countup to the expired time
+        displayTime = timeToWin - timeLeft; // gives the time that should be displayed
+
+        if (displayTime > 0)
+        {
+            float minutes = Mathf.FloorToInt(displayTime / 60);
+            float seconds = Mathf.FloorToInt(displayTime % 60);
+
+            timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+        else if (displayTime <= 0)
+        {
+            timer.text = "00:00";
+        } 
     }
 
     /// <summary>
@@ -189,6 +225,11 @@ public class Inventory : MonoBehaviourPunCallbacks
         GameObject.Find("Main Light").GetComponent<Light>().intensity = 1;
         numWinItems = 0;
         GameManager.instance.playerHunting = true;
+        if(timerActive == false)
+        {
+            timeOfWin = ((float)DateTime.Now.Hour * 3600) + ((float)DateTime.Now.Minute * 60) + ((float)DateTime.Now.Second);
+            timerActive = true;
+        }
     }
 
 
