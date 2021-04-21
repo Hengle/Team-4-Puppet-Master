@@ -5,19 +5,19 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody rb;
-    public float moveSpeed = 50;
+    public float moveSpeed;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.velocity += transform.forward * moveSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity += transform.forward * moveSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)

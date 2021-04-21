@@ -8,4 +8,9 @@ public class PickupableItem : MonoBehaviour
 
     public Type thisType;
 
+    void Update()
+    {
+        transform.eulerAngles += Vector3.up;
+    }
+
 }

@@ -229,6 +229,7 @@ MonoBehaviour:
   axe: {fileID: 6368924430890074588, guid: 569ea1720003e4b4bac8e9faa194c5d5, type: 3}
   usb: {fileID: 6368924430890074588, guid: e97deb7685473a449b3b0c123917d748, type: 3}
   safe: {fileID: 500138585480068146, guid: e7fa419f8e3c4d443ba919990c6e6afa, type: 3}
+  monsterSafe: {fileID: 500138585480068146, guid: 8508dce2ca524a7468637303a3bedfdf, type: 3}
   itemsArea: {fileID: 6666307832196754337}
 --- !u!1 &1931417061874638321
 GameObject:

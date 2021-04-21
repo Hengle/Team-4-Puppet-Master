@@ -189,6 +189,9 @@ public class Inventory : MonoBehaviourPunCallbacks
         GameObject.Find("Main Light").GetComponent<Light>().intensity = 1;
         numWinItems = 0;
         GameManager.instance.playerHunting = true;
+        foreach (GameObject monster in GameObject.FindGameObjectsWithTag("Monster"))
+            monster.GetComponent<MonsterAgent>().SlowYourRole();
+        GameObject.FindGameObjectWithTag("MonsterSafeArea").GetComponent<MonsterSafe>().Raise();
     }
 
 

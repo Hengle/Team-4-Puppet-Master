@@ -27,4 +27,9 @@ public class MonsterAgent : NetworkedAgent
     {
         moveDir = new Vector3(joystick.moveDirection.x, 0, joystick.moveDirection.y);
     }
+
+    public void SlowYourRole()
+    {
+        speed *= 0.75f;
+    }
 }

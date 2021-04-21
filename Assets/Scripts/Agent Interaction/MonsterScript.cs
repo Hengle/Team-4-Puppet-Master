@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MonsterScript : MonoBehaviour
 {
     public static bool playerDead = false;
+    public bool monsterSafe = false;
     public int monsterHealth = 1000;
     public string fullWinScreen = "TitleScreen";    //No monsters die
     public string partialWinScreen = "TitleScreen"; //Some monsters die

@@ -10,7 +10,7 @@ public class objectPlacement : MonoBehaviour
     public List<Vector3> safeLocationList;
     bool[] alreadyUsedLocation; 
 
-    public GameObject bow, axe, usb, safe;
+    public GameObject bow, axe, usb, safe, monsterSafe;
     public Transform itemsArea;
     // Start is called before the first frame update
     public void OnStartGame()
@@ -39,6 +39,10 @@ public class objectPlacement : MonoBehaviour
         addedSafe.transform.parent = itemsArea;
         addedSafe.transform.localPosition = safeLocationList[Random.Range(0, safeLocationList.Count)];
 
+        GameObject addedMonsterSafe = PhotonNetwork.Instantiate($"OnGround/{monsterSafe.name}", Vector3.zero, Quaternion.identity);
+        addedMonsterSafe.transform.parent = itemsArea;
+        addedMonsterSafe.transform.localPosition = safeLocationList[Random.Range(0, safeLocationList.Count)];
+        addedMonsterSafe.GetComponent<MonsterSafe>().Lower();
     }
 
     // Update is called once per frame

@@ -7,6 +7,8 @@ public class MeleeWeapon : MonoBehaviour
     public float swingSpeed = 1;
     public float swingAngle = 45;
     float swingCheck = 0;
+    public GameObject hitArea;
+    public Transform hitPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,9 @@ public class MeleeWeapon : MonoBehaviour
 
     void swingWeapon()
     {
+        if (swingCheck == 0)
+            Instantiate(hitArea, hitPosition);
+
         swingCheck += Time.deltaTime;
         if (swingCheck < swingSpeed / 2f)
             transform.rotation = Quaternion.Euler(Mathf.Lerp(0, swingAngle, swingCheck / (swingSpeed / 2f)), transform.eulerAngles.y, transform.eulerAngles.z);
